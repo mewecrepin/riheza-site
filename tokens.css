@@ -1,0 +1,65 @@
+/* Jetons de l'allure Riheza, repris de la charte graphique v1.0 (octobre 2026).
+   Le site n'utilise aucune couleur, police ou taille en dehors de ces variables. */
+:root {
+  /* Couleurs de la marque */
+  --bleu: #263D69;          /* Bleu Riheza : titres, fonds sombres */
+  --bleu-fonce: #1A2C4F;    /* survol marine, pied de page */
+  --bleu-clair: #C9D3E6;    /* bordures, texte secondaire sur marine */
+  --bleu-voile: #EEF1F7;    /* survol du bouton contour */
+  --orange: #FC6104;        /* Orange Riheza : actions d'achat, badges promo */
+  --orange-fonce: #D94F00;  /* texte orange, survol des actions */
+  --orange-clair: #FF9A5C;  /* accent sur fond marine */
+  --vert-whatsapp: #1E7A45; /* succès, « en stock » */
+  --vert-fond: #E7F5EC;
+
+  /* Neutres */
+  --blanc: #FFFFFF;
+  --gris-fond: #F4F6FA;
+  --bordure: #E3E7EF;
+  --texte: #1C2333;
+  --texte-doux: #4A5468;
+  --texte-eteint: #8A93A6;  /* prix barré */
+  --voile-marine: rgba(38, 61, 105, .12);
+
+  /* Polices */
+  --police-titre: "Open Sans", Arial, sans-serif;
+  --police-texte: Roboto, Arial, sans-serif;
+
+  /* Tailles de texte */
+  --t-surtitre: 13px;
+  --t-petit: 14px;
+  --t-corps: 16px;
+  --t-lead: 18px;
+  --t-h3: 20px;
+  --t-h2: clamp(26px, 3.4vw, 36px);
+  --t-h1: clamp(32px, 5vw, 56px);
+  --t-prix: 26px;
+  --t-prix-grand: 36px;
+
+  /* Espacements (échelle de la charte) */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 20px;
+  --e-6: 24px;
+  --e-7: 32px;
+  --e-8: 40px;
+  --e-9: 48px;
+  --e-10: 72px;
+  --e-section: clamp(56px, 8vw, 88px);
+  --gouttiere: clamp(16px, 5vw, 72px);
+  --largeur-max: 1200px;
+
+  /* Formes */
+  --rayon-bouton: 8px;
+  --rayon-pilule: 999px;
+  --rayon-carte: 0;
+  --hauteur-bouton: 48px;
+  --ombre-flottante: 0 10px 30px rgba(38, 61, 105, .12);
+
+  /* Mouvement (registre standard) */
+  --duree-survol: 150ms;
+  --duree-arrivee: 600ms;
+  --courbe: cubic-bezier(.2, .7, .2, 1);
+}
