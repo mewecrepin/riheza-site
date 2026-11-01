@@ -82,6 +82,44 @@
     if (location.hash === '#recherche' && !depart) { setTimeout(function () { champ.focus(); }, 300); }
   }
 
+  // Application installable : mise en mémoire et bandeau « Installer »
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+  }
+  (function () {
+    var bandeau = document.querySelector('.installer'); if (!bandeau) return;
+    var ok = bandeau.querySelector('.installer-ok'), fermer = bandeau.querySelector('.installer-fermer');
+    var aide = bandeau.querySelector('[data-installer-aide]'), lien = document.querySelector('[data-installer-lien]');
+    var installee = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+    if (installee) return;
+    var lire = function () { try { return +localStorage.getItem('riheza-installer-ferme') || 0; } catch (e) { return 0; } };
+    var ecrire = function () { try { localStorage.setItem('riheza-installer-ferme', Date.now()); } catch (e) {} };
+    var recent = Date.now() - lire() < 14 * 24 * 3600 * 1000;
+    var montrer = function () { bandeau.hidden = false; html.classList.add('installer-visible'); };
+    var cacher = function () { bandeau.hidden = true; html.classList.remove('installer-visible'); };
+    var invite = null;
+    var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+    window.addEventListener('beforeinstallprompt', function (ev) {
+      ev.preventDefault(); invite = ev;
+      if (lien) lien.hidden = false;
+      if (!recent) setTimeout(montrer, 4000);
+    });
+    if (ios) {
+      ok.hidden = true;
+      aide.textContent = 'Touchez le bouton Partager, puis « Sur l’écran d’accueil ».';
+      if (lien) lien.hidden = false;
+      if (!recent) setTimeout(montrer, 4000);
+    }
+    ok.addEventListener('click', function () {
+      if (!invite) return;
+      invite.prompt();
+      invite.userChoice.finally(function () { invite = null; cacher(); if (lien) lien.hidden = true; });
+    });
+    fermer.addEventListener('click', function () { ecrire(); cacher(); });
+    if (lien) lien.addEventListener('click', function (ev) { ev.preventDefault(); montrer(); });
+    window.addEventListener('appinstalled', function () { cacher(); if (lien) lien.hidden = true; });
+  })();
+
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (calme || !('IntersectionObserver' in window)) return;
   html.classList.add('anime');

@@ -1,0 +1,22 @@
+{
+  "name": "Riheza : électroménager, électronique et plus à Lomé",
+  "short_name": "Riheza",
+  "description": "Produits neufs, livrés en moins de 2 h partout à Lomé. Paiement à la livraison, Mixx by Yas ou Moov Money.",
+  "lang": "fr",
+  "id": "/",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#263D69",
+  "icons": [
+    { "src": "images/app/icone-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "images/app/icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "images/app/icone-masquable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Nos produits", "url": "/produits.html", "icons": [{ "src": "images/app/icone-192.png", "sizes": "192x192" }] },
+    { "name": "Rechercher un produit", "url": "/produits.html#recherche", "icons": [{ "src": "images/app/icone-192.png", "sizes": "192x192" }] }
+  ]
+}
