@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; height: auto; display: block; }
+[hidden] { display: none !important; }
 a { color: var(--bleu); }
 a:hover { color: var(--orange-fonce); }
 h1, h2, h3 { font-family: var(--police-titre); color: var(--bleu); margin: 0; text-wrap: balance; }
@@ -358,6 +359,37 @@ p { margin: 0; }
 .flottant:hover { background: var(--orange-fonce); color: var(--blanc); }
 .flottant svg { width: 28px; height: 28px; }
 @media (min-width: 1024px) { .flottant { display: none; } }
+
+/* Recherche */
+.entete-recherche {
+  margin-left: auto; width: 44px; height: 44px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--bleu-clair); border-radius: var(--rayon-bouton); color: var(--bleu);
+  transition: background-color var(--duree-survol) ease-out, color var(--duree-survol) ease-out;
+}
+.entete-recherche:hover { background: var(--bleu); color: var(--blanc); }
+.entete-recherche svg { width: 22px; height: 22px; }
+.entete .conteneur { gap: var(--e-3); }
+.entete .logo { margin-right: auto; }
+@media (min-width: 1024px) { .entete-recherche { margin-left: 0; order: 3; } .entete .nav { order: 2; } }
+.recherche { position: relative; max-width: 560px; margin-top: var(--e-6); scroll-margin-top: 96px; }
+.recherche svg { position: absolute; left: var(--e-4); top: 50%; transform: translateY(-50%); width: 22px; height: 22px; color: var(--texte-doux); pointer-events: none; }
+.recherche input {
+  width: 100%; min-height: 52px; padding: 0 52px 0 52px;
+  border: 2px solid var(--bleu-clair); border-radius: var(--rayon-pilule); background: var(--blanc);
+  font-family: var(--police-texte); font-size: var(--t-corps); color: var(--texte);
+  -webkit-appearance: none; appearance: none;
+}
+.recherche input::-webkit-search-cancel-button { display: none; }
+.recherche input:focus { outline: none; border-color: var(--orange); }
+.recherche-effacer {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--gris-fond);
+  color: var(--bleu); font-size: 24px; line-height: 1; cursor: pointer;
+}
+.recherche-resultat { margin-top: var(--e-3); font-size: var(--t-petit); color: var(--texte-doux); min-height: 1.5em; }
+.recherche-resultat:empty { display: none; }
+.sans-js .recherche, .sans-js .entete-recherche { display: none; }
 
 /* Liens et partage sur les cartes produits */
 .produit-lien { color: inherit; text-decoration: none; }

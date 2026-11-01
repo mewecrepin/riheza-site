@@ -47,6 +47,41 @@
     });
   });
 
+  // Recherche dans la page Produits : filtre les cartes au fil de la frappe
+  var form = document.getElementById('recherche');
+  if (form) {
+    var champ = form.querySelector('input'), effacer = form.querySelector('.recherche-effacer');
+    var statut = document.querySelector('.recherche-resultat'), vide = document.querySelector('.recherche-vide');
+    var waVide = document.querySelector('[data-recherche-wa]'), waBase = waVide ? waVide.getAttribute('href') : '';
+    var rayons = document.querySelectorAll('.rayon'), bandeau = document.querySelector('main > .bandeau');
+    var norm = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
+    var synonymes = { frigo: 'refrigerateur', congelo: 'congelateur', tele: 'tv', television: 'tv', telephone: 'samsung', portable: 'ordinateur', ecouteur: 'casque', micro: 'micro', ventilo: 'ventilateur', gaz: 'cuisiniere' };
+    var cartes = [];
+    rayons.forEach(function (r) { r.querySelectorAll('.produit').forEach(function (c) { cartes.push({ el: c, rayon: r, texte: norm(c.textContent) }); }); });
+    var filtrer = function () {
+      var q = norm(champ.value.trim());
+      effacer.hidden = !q;
+      var mots = q.split(/\s+/).filter(Boolean).map(function (m) { return m.length > 3 ? m.replace(/s$/, '') : m; });
+      var n = 0;
+      cartes.forEach(function (c) {
+        var ok = mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); });
+        c.el.hidden = !ok; if (ok) n++;
+      });
+      rayons.forEach(function (r) { r.hidden = !!q && !r.querySelector('.produit:not([hidden])'); });
+      if (bandeau) bandeau.hidden = !!q && n === 0;
+      vide.hidden = !(q && n === 0);
+      if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(champ.value.trim()));
+      statut.textContent = !q ? '' : n === 0 ? 'Aucun produit trouvé pour « ' + champ.value.trim() + ' ».' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + ' pour « ' + champ.value.trim() + ' ».';
+      if (history.replaceState) history.replaceState(null, '', q ? '?q=' + encodeURIComponent(champ.value.trim()) + '#recherche' : location.pathname);
+    };
+    champ.addEventListener('input', filtrer);
+    form.addEventListener('submit', function (ev) { ev.preventDefault(); champ.blur(); filtrer(); });
+    effacer.addEventListener('click', function () { champ.value = ''; filtrer(); champ.focus(); });
+    var depart = new URLSearchParams(location.search).get('q');
+    if (depart) { champ.value = depart; filtrer(); }
+    if (location.hash === '#recherche' && !depart) { setTimeout(function () { champ.focus(); }, 300); }
+  }
+
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (calme || !('IntersectionObserver' in window)) return;
   html.classList.add('anime');

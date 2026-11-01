@@ -23,7 +23,6 @@
 <header class="entete">
   <div class="conteneur">
     <a class="logo" href="index.html"><img src="images/riheza-logo.png" alt="Riheza, retour à l'accueil" width="520" height="220"></a>
-    <button class="nav-bouton" type="button" aria-expanded="false" aria-controls="nav"><span aria-hidden="true"></span>Menu</button>
     <nav class="nav" id="nav" aria-label="Menu principal">
       <ul>
         <li><a href="index.html">Accueil</a></li>
@@ -35,6 +34,8 @@
       </ul>
       <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20souhaite%20passer%20une%20commande."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander sur WhatsApp</a>
     </nav>
+    <a class="entete-recherche" href="produits.html#recherche" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
+    <button class="nav-bouton" type="button" aria-expanded="false" aria-controls="nav"><span aria-hidden="true"></span>Menu</button>
   </div>
 </header>
 
@@ -45,6 +46,13 @@
     <span class="surtitre">Produits</span>
     <h1 id="titre-page">Nos produits et leurs prix</h1>
     <p>Une sélection de notre stock, avec les prix du moment. Pour commander, touchez « Commander » : WhatsApp s'ouvre avec le nom du produit déjà écrit.</p>
+    <form class="recherche" role="search" action="produits.html" id="recherche">
+      <label class="visuellement-cache" for="champ-recherche">Rechercher un produit</label>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="champ-recherche" name="q" placeholder="Rechercher un produit : frigo, sac, câble…" autocomplete="off" enterkeyhint="search">
+      <button type="button" class="recherche-effacer" aria-label="Effacer la recherche" hidden>×</button>
+    </form>
+    <p class="recherche-resultat" role="status" aria-live="polite"></p>
   </div>
 </section>
 
@@ -58,6 +66,16 @@
     <li><a href="#divers">Divers</a></li>
   </ul>
 </nav>
+
+<section class="section recherche-vide" hidden>
+  <div class="conteneur">
+    <div class="rayon-vide">
+      <h2>Aucun produit trouvé sur le site</h2>
+      <p>Nous avons un millier de produits en stock et le site n'en montre qu'une sélection. Demandez-nous directement : nous vous répondons avec le prix et une photo.</p>
+      <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20ce%20produit%20%3A%20" data-recherche-wa><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Demander sur WhatsApp</a>
+    </div>
+  </div>
+</section>
 
 <section class="section rayon" id="electromenager" aria-labelledby="titre-electromenager">
   <div class="conteneur">
