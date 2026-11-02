@@ -81,6 +81,16 @@
     effacer.addEventListener('click', function () { champ.value = ''; filtrer(); champ.focus(); });
     var depart = new URLSearchParams(location.search).get('q');
     if (depart) { champ.value = depart; filtrer(); }
+    // La barre de l'en-tête, déjà sur cette page : elle filtre sans recharger
+    var haut = document.getElementById('entete-champ');
+    if (haut) {
+      if (depart) haut.value = depart;
+      haut.form.addEventListener('submit', function (ev) {
+        ev.preventDefault(); haut.blur();
+        champ.value = haut.value; filtrer();
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
     if (location.hash === '#recherche' && !depart) { setTimeout(function () { champ.focus(); }, 300); }
   }
 
