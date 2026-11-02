@@ -68,6 +68,14 @@ p { margin: 0; }
 .btn-contour-clair { border-color: var(--bleu-clair); color: var(--blanc); }
 .btn-contour-clair:hover { background: var(--bleu-fonce); color: var(--blanc); }
 .btn-large { width: 100%; }
+/* « Voir les produits » : bouton plein, avec une flèche, pour qu'on le voie autant que WhatsApp */
+.btn-blanc { background: var(--blanc); color: var(--bleu); font-weight: 700; }
+.btn-blanc:hover { background: var(--orange-clair); color: var(--bleu-fonce); }
+.btn-marine.btn-fleche { font-weight: 700; }
+.btn-fleche::after { content: "→"; font-size: 1.15em; transition: transform var(--duree-survol) ease-out; }
+.btn-fleche:hover::after { transform: translateX(4px); }
+.voir-tout { display: flex; justify-content: center; margin-top: var(--e-8); }
+.voir-tout .btn { width: 100%; max-width: 400px; }
 
 /* En-tête */
 .entete {
