@@ -1,7 +1,7 @@
 // Riheza : mise en mémoire pour l'application installée.
 // Pages : réseau d'abord (prix toujours à jour), mémoire si la connexion coupe.
 // Images, styles, polices : mémoire d'abord (ouverture rapide), mises à jour en arrière-plan.
-var VERSION = 'riheza-v2';
+var VERSION = 'riheza-v3';
 var BASE = ['index.html', 'produits.html', 'contact.html', 'style.css', 'tokens.css', 'menu.js',
   'images/riheza-logo.png', 'images/riheza-logo-blanc.png', 'images/favicon.png', 'images/app/icone-192.png'];
 

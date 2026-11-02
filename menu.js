@@ -47,39 +47,112 @@
     });
   });
 
-  // Recherche dans la page Produits : filtre les cartes au fil de la frappe
+  // Page Produits : recherche, rayon, prix et tri, combinés. Sans tri, les produits restent rangés par rayon ;
+  // avec un tri ou « Nouveautés », ils passent dans une seule grille, puis reviennent à leur place.
   var form = document.getElementById('recherche');
   if (form) {
     var champ = form.querySelector('input'), effacer = form.querySelector('.recherche-effacer');
+    var selPrix = document.getElementById('filtre-prix'), selTri = document.getElementById('tri');
+    var puces = document.querySelectorAll('.sommaire [data-cat]');
     var statut = document.querySelector('.recherche-resultat'), vide = document.querySelector('.recherche-vide');
     var waVide = document.querySelector('[data-recherche-wa]'), waBase = waVide ? waVide.getAttribute('href') : '';
     var rayons = document.querySelectorAll('.rayon'), bandeau = document.querySelector('main > .bandeau');
+    var resultats = document.querySelector('.resultats'), grille = document.getElementById('grille-resultats');
+    var sommaire = document.querySelector('.sommaire');
     var norm = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
-    var synonymes = { frigo: 'refrigerateur', congelo: 'congelateur', tele: 'tv', television: 'tv', telephone: 'samsung', portable: 'ordinateur', ecouteur: 'casque', micro: 'micro', ventilo: 'ventilateur', gaz: 'cuisiniere' };
+    var synonymes = { frigo: 'refrigerateur', congelo: 'congelateur', tele: 'tv', television: 'tv', telephone: 'samsung', portable: 'ordinateur', ecouteur: 'casque', micro: 'micro', ventilo: 'ventilateur', gaz: 'cuisiniere', pese: 'balance' };
     var cartes = [];
-    rayons.forEach(function (r) { r.querySelectorAll('.produit').forEach(function (c) { cartes.push({ el: c, rayon: r, texte: norm(c.textContent) }); }); });
+    rayons.forEach(function (r) {
+      r.querySelectorAll('.produit').forEach(function (c) {
+        cartes.push({ el: c, parent: c.parentNode, texte: norm(c.textContent), cat: c.getAttribute('data-cat'),
+          prix: +c.getAttribute('data-prix'), remise: +c.getAttribute('data-remise'), ordre: +c.getAttribute('data-ordre'),
+          pop: +c.getAttribute('data-pop'), nouveau: c.hasAttribute('data-nouveau') });
+      });
+    });
+    var tris = {
+      populaires: function (a, b) { return a.pop - b.pop; },
+      recents: function (a, b) { return b.ordre - a.ordre; },
+      'prix-croissant': function (a, b) { return a.prix - b.prix; },
+      'prix-decroissant': function (a, b) { return b.prix - a.prix; },
+      remise: function (a, b) { return b.remise - a.remise || a.prix - b.prix; }
+    };
+    var cat = '', aplat = false;
+    var poserPuce = function () {
+      puces.forEach(function (p) {
+        var actif = p.getAttribute('data-cat') === cat;
+        p.setAttribute('aria-current', actif ? 'true' : 'false');
+        // la puce choisie reste visible dans la bande qui défile sur téléphone
+        if (actif) { var ul = p.closest('ul'); ul.scrollLeft = p.parentNode.offsetLeft - (ul.clientWidth - p.offsetWidth) / 2; }
+      });
+    };
     var filtrer = function () {
-      var q = norm(champ.value.trim());
+      var brut = champ.value.trim(), q = norm(brut);
       effacer.hidden = !q;
       var mots = q.split(/\s+/).filter(Boolean).map(function (m) { return m.length > 3 ? m.replace(/s$/, '') : m; });
-      var n = 0;
+      var bornes = selPrix.value.split('-'), min = +bornes[0] || 0, max = bornes[1] ? +bornes[1] : Infinity;
+      var tri = selTri.value || (cat === 'nouveautes' ? 'recents' : '');
+      var n = 0, gardees = [];
       cartes.forEach(function (c) {
-        var ok = mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); });
-        c.el.hidden = !ok; if (ok) n++;
+        var ok = mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); })
+          && (!cat || (cat === 'nouveautes' ? c.nouveau : c.cat === cat))
+          && c.prix >= min && c.prix < max;
+        c.el.hidden = !ok; if (ok) { n++; gardees.push(c); }
       });
-      rayons.forEach(function (r) { r.hidden = !!q && !r.querySelector('.produit:not([hidden])'); });
-      if (bandeau) bandeau.hidden = !!q && n === 0;
-      vide.hidden = !(q && n === 0);
-      if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(champ.value.trim()));
-      statut.textContent = !q ? '' : n === 0 ? 'Aucun produit trouvé pour « ' + champ.value.trim() + ' ».' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + ' pour « ' + champ.value.trim() + ' ».';
-      if (history.replaceState) history.replaceState(null, '', q ? '?q=' + encodeURIComponent(champ.value.trim()) + '#recherche' : location.pathname);
+      // Une seule grille triée, ou retour aux rayons dans l'ordre d'origine
+      if (tri) {
+        gardees.sort(tris[tri]).forEach(function (c) { grille.appendChild(c.el); });
+        aplat = true;
+      } else if (aplat) {
+        cartes.forEach(function (c) { c.parent.appendChild(c.el); });
+        aplat = false;
+      }
+      resultats.hidden = !tri || n === 0;
+      rayons.forEach(function (r) { r.hidden = !!tri || !r.querySelector('.produit:not([hidden])'); });
+      var filtre = !!(q || cat || selPrix.value || selTri.value);
+      if (bandeau) bandeau.hidden = filtre && n === 0;
+      vide.hidden = n !== 0;
+      if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(brut));
+      selPrix.classList.toggle('actif', !!selPrix.value); selTri.classList.toggle('actif', !!selTri.value);
+      statut.textContent = !filtre ? '' : n === 0 ? 'Aucun produit trouvé' + (q ? ' pour « ' + brut + ' »' : ' avec ces filtres') + '.' : n + (n > 1 ? ' produits' : ' produit') + (q ? ' pour « ' + brut + ' »' : '') + '.';
+      if (filtre) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'filtres-effacer'; b.textContent = 'Tout effacer';
+        b.addEventListener('click', function () { champ.value = ''; selPrix.value = ''; selTri.value = ''; cat = ''; poserPuce(); filtrer(); });
+        statut.appendChild(b);
+      }
+      var p = new URLSearchParams();
+      if (brut) p.set('q', brut); if (cat) p.set('cat', cat); if (selPrix.value) p.set('prix', selPrix.value); if (selTri.value) p.set('tri', selTri.value);
+      if (history.replaceState) history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+    };
+    var versResultats = function () {
+      var haut = sommaire.offsetTop;
+      if (window.scrollY > haut) window.scrollTo({ top: haut, behavior: 'smooth' });
     };
     champ.addEventListener('input', filtrer);
     form.addEventListener('submit', function (ev) { ev.preventDefault(); champ.blur(); filtrer(); });
     effacer.addEventListener('click', function () { champ.value = ''; filtrer(); champ.focus(); });
-    var depart = new URLSearchParams(location.search).get('q');
-    if (depart) { champ.value = depart; filtrer(); }
-    if (location.hash === '#recherche' && !depart) { setTimeout(function () { champ.focus(); }, 300); }
+    selPrix.addEventListener('change', filtrer);
+    selTri.addEventListener('change', filtrer);
+    puces.forEach(function (p) {
+      p.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var c = p.getAttribute('data-cat');
+        cat = (c === cat && c) ? '' : c;
+        poserPuce(); filtrer(); versResultats();
+      });
+    });
+    var depart = new URLSearchParams(location.search);
+    champ.value = depart.get('q') || '';
+    if (/^[a-z]+$/.test(depart.get('cat') || '')) cat = depart.get('cat');
+    if (depart.get('prix')) selPrix.value = depart.get('prix');
+    if (depart.get('tri')) selTri.value = depart.get('tri');
+    if (selPrix.selectedIndex < 0) selPrix.value = '';
+    if (selTri.selectedIndex < 0) selTri.value = '';
+    poserPuce();
+    if (champ.value || cat || selPrix.value || selTri.value) filtrer();
+    if (location.hash === '#recherche' && !champ.value) { setTimeout(function () { champ.focus(); }, 300); }
+    // La loupe de l'en-tête, déjà sur cette page : on va au champ au lieu de recharger
+    var loupe = document.querySelector('.entete-recherche');
+    if (loupe) loupe.addEventListener('click', function (ev) { ev.preventDefault(); form.scrollIntoView({ behavior: 'smooth', block: 'center' }); champ.focus({ preventScroll: true }); });
   }
 
   // Application installable : mise en mémoire et bandeau « Installer »
