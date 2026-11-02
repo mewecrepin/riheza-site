@@ -77,6 +77,12 @@ p { margin: 0; }
 .voir-tout { display: flex; justify-content: center; margin-top: var(--e-8); }
 .voir-tout .btn { width: 100%; max-width: 400px; }
 
+/* Nouveautés : badge sur la photo, puce orange dans la page Produits */
+.badge-nouveau { position: absolute; top: var(--e-3); left: var(--e-3); background: var(--bleu); color: var(--blanc); letter-spacing: .06em; text-transform: uppercase; }
+.sommaire a.sommaire-nouveau { border-color: var(--orange); color: var(--orange-fonce); font-weight: 700; }
+.sommaire a.sommaire-nouveau:hover { background: var(--orange); color: var(--blanc); border-color: var(--orange); }
+.rayon-nouveautes { scroll-margin-top: 140px; }
+
 /* En-tête */
 .entete {
   position: sticky;

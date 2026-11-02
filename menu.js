@@ -54,6 +54,7 @@
     var statut = document.querySelector('.recherche-resultat'), vide = document.querySelector('.recherche-vide');
     var waVide = document.querySelector('[data-recherche-wa]'), waBase = waVide ? waVide.getAttribute('href') : '';
     var rayons = document.querySelectorAll('.rayon'), bandeau = document.querySelector('main > .bandeau');
+    var nouv = document.querySelector('.rayon-nouveautes'); // ses produits sont aussi dans leur rayon : on la masque pendant une recherche
     var norm = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
     var synonymes = { frigo: 'refrigerateur', congelo: 'congelateur', tele: 'tv', television: 'tv', telephone: 'samsung', portable: 'ordinateur', ecouteur: 'casque', micro: 'micro', ventilo: 'ventilateur', gaz: 'cuisiniere' };
     var cartes = [];
@@ -69,6 +70,7 @@
       });
       rayons.forEach(function (r) { r.hidden = !!q && !r.querySelector('.produit:not([hidden])'); });
       if (bandeau) bandeau.hidden = !!q && n === 0;
+      if (nouv) nouv.hidden = !!q;
       vide.hidden = !(q && n === 0);
       if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(champ.value.trim()));
       statut.textContent = !q ? '' : n === 0 ? 'Aucun produit trouvé pour « ' + champ.value.trim() + ' ».' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + ' pour « ' + champ.value.trim() + ' ».';
