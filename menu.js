@@ -132,13 +132,31 @@
   }, { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.apparait').forEach(function (el) { observateur.observe(el); });
 
-  // Vitrine : chaque case passe une fois à son second produit, puis tout se pose
-  document.querySelectorAll('.vitrine figure').forEach(function (fig, i) {
-    var imgs = fig.querySelectorAll('img');
-    if (imgs.length < 2) return;
-    setTimeout(function () {
-      imgs[0].style.opacity = '0';
-      imgs[1].classList.remove('suivante');
-    }, 2600 + i * 450);
+  // Vitrine : les quatre cases changent de produit tour à tour, en fondu, sans fin
+  var cases = [];
+  document.querySelectorAll('.vitrine-case').forEach(function (a) {
+    var liste; try { liste = JSON.parse(a.getAttribute('data-vitrine')); } catch (e) { liste = []; }
+    if (liste.length > 1) cases.push({ a: a, liste: liste, n: 0 });
   });
+  if (cases.length) {
+    var tour = 0;
+    var changer = function () {
+      if (document.hidden) return;
+      var c = cases[tour % cases.length]; tour++;
+      var n = (c.n + 1) % c.liste.length, p = c.liste[n];
+      var neuve = new Image();
+      neuve.onload = function () {
+        neuve.alt = p.n; neuve.width = 800; neuve.height = 800; neuve.className = 'suivante';
+        c.a.appendChild(neuve);
+        void neuve.offsetWidth; // force le navigateur à poser l'image invisible avant le fondu
+        neuve.classList.remove('suivante');
+        var nettoyer = function () { var imgs = c.a.querySelectorAll('img'); for (var i = 0; i < imgs.length - 1; i++) imgs[i].remove(); };
+        neuve.addEventListener('transitionend', nettoyer, { once: true });
+        setTimeout(nettoyer, 2500);
+        c.a.href = p.u; c.n = n;
+      };
+      neuve.src = 'images/produits/' + p.i;
+    };
+    setTimeout(function () { changer(); setInterval(changer, 2000); }, 2500);
+  }
 })();
