@@ -92,7 +92,7 @@ p { margin: 0; }
   border-bottom: 1px solid var(--bordure);
 }
 .entete .conteneur { display: flex; align-items: center; justify-content: space-between; gap: var(--e-4); min-height: 72px; }
-.logo img { width: 124px; }
+.logo img { width: 104px; }
 .nav-bouton {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--e-2);
   min-height: 44px; padding: 0 var(--e-3);
@@ -120,7 +120,7 @@ p { margin: 0; }
 .sans-js .nav { display: block; position: static; box-shadow: none; padding: 0 0 var(--e-4); border: 0; }
 
 @media (min-width: 1024px) {
-  .logo img { width: 140px; }
+  .logo img { width: 112px; }
   .nav-bouton { display: none; }
   .nav, .sans-js .nav { display: flex; align-items: center; gap: var(--e-6); position: static; padding: 0; border: 0; box-shadow: none; }
   .nav ul { display: flex; gap: var(--e-5); }
