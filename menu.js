@@ -47,40 +47,90 @@
     });
   });
 
-  // Recherche dans la page Produits : filtre les cartes au fil de la frappe
+  // Page Produits : recherche, prix et rayon, combinés. Les puces de la bande choisissent un rayon (ou les nouveautés).
   var form = document.getElementById('recherche');
   if (form) {
     var champ = form.querySelector('input'), effacer = form.querySelector('.recherche-effacer');
+    var selPrix = document.getElementById('filtre-prix'), puces = document.querySelectorAll('.sommaire [data-cat]');
+    var sommaire = document.querySelector('.sommaire');
     var statut = document.querySelector('.recherche-resultat'), vide = document.querySelector('.recherche-vide');
     var waVide = document.querySelector('[data-recherche-wa]'), waBase = waVide ? waVide.getAttribute('href') : '';
     var rayons = document.querySelectorAll('.rayon'), bandeau = document.querySelector('main > .bandeau');
-    var nouv = document.querySelector('.rayon-nouveautes'); // ses produits sont aussi dans leur rayon : on la masque pendant une recherche
+    var nouv = document.querySelector('.rayon-nouveautes'); // ses produits sont aussi dans leur rayon : on ne la montre que sans filtre, ou seule
     var norm = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
     var synonymes = { frigo: 'refrigerateur', congelo: 'congelateur', tele: 'tv', television: 'tv', telephone: 'samsung', portable: 'ordinateur', ecouteur: 'casque', micro: 'micro', ventilo: 'ventilateur', gaz: 'cuisiniere' };
+    var lire = function (zone) {
+      return Array.prototype.map.call(zone.querySelectorAll('.produit'), function (c) {
+        return { el: c, texte: norm(c.textContent), cat: c.getAttribute('data-cat'), prix: +c.getAttribute('data-prix') };
+      });
+    };
     var cartes = [];
-    rayons.forEach(function (r) { r.querySelectorAll('.produit').forEach(function (c) { cartes.push({ el: c, rayon: r, texte: norm(c.textContent) }); }); });
+    rayons.forEach(function (r) { cartes = cartes.concat(lire(r)); });
+    var cartesNouv = nouv ? lire(nouv) : [];
+    var cat = '';
+    var poserPuces = function () {
+      puces.forEach(function (p) {
+        var actif = p.getAttribute('data-cat') === cat;
+        p.setAttribute('aria-current', actif ? 'true' : 'false');
+        if (actif) { var ul = p.closest('ul'); ul.scrollLeft = p.parentNode.offsetLeft - (ul.clientWidth - p.offsetWidth) / 2; }
+      });
+    };
     var filtrer = function () {
-      var q = norm(champ.value.trim());
+      var brut = champ.value.trim(), q = norm(brut);
       effacer.hidden = !q;
       var mots = q.split(/\s+/).filter(Boolean).map(function (m) { return m.length > 3 ? m.replace(/s$/, '') : m; });
+      var bornes = selPrix.value.split('-'), min = +bornes[0] || 0, max = bornes[1] ? +bornes[1] : Infinity;
+      var garder = function (c) {
+        return c.prix >= min && c.prix < max && mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); });
+      };
       var n = 0;
-      cartes.forEach(function (c) {
-        var ok = mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); });
-        c.el.hidden = !ok; if (ok) n++;
-      });
-      rayons.forEach(function (r) { r.hidden = !!q && !r.querySelector('.produit:not([hidden])'); });
-      if (bandeau) bandeau.hidden = !!q && n === 0;
-      if (nouv) nouv.hidden = !!q;
-      vide.hidden = !(q && n === 0);
-      if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(champ.value.trim()));
-      statut.textContent = !q ? '' : n === 0 ? 'Aucun produit trouvé pour « ' + champ.value.trim() + ' ».' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + ' pour « ' + champ.value.trim() + ' ».';
-      if (history.replaceState) history.replaceState(null, '', q ? '?q=' + encodeURIComponent(champ.value.trim()) + '#recherche' : location.pathname);
+      if (cat === 'nouveautes') {
+        cartes.forEach(function (c) { c.el.hidden = true; });
+        cartesNouv.forEach(function (c) { var ok = garder(c); c.el.hidden = !ok; if (ok) n++; });
+        rayons.forEach(function (r) { r.hidden = true; });
+        if (nouv) nouv.hidden = n === 0;
+      } else {
+        cartes.forEach(function (c) { var ok = (!cat || c.cat === cat) && garder(c); c.el.hidden = !ok; if (ok) n++; });
+        cartesNouv.forEach(function (c) { c.el.hidden = false; });
+        rayons.forEach(function (r) { r.hidden = !r.querySelector('.produit:not([hidden])'); });
+        if (nouv) nouv.hidden = !!(q || cat || selPrix.value);
+      }
+      var filtre = !!(q || cat || selPrix.value);
+      if (bandeau) bandeau.hidden = filtre && n === 0;
+      vide.hidden = !(filtre && n === 0);
+      if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(brut));
+      selPrix.classList.toggle('actif', !!selPrix.value);
+      statut.textContent = !filtre ? '' : n === 0 ? 'Aucun produit trouvé' + (q ? ' pour « ' + brut + ' »' : ' avec ces filtres') + '.' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + (q ? ' pour « ' + brut + ' »' : '') + '.';
+      if (filtre) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'filtres-effacer'; b.textContent = 'Tout effacer';
+        b.addEventListener('click', function () { champ.value = ''; selPrix.value = ''; cat = ''; poserPuces(); filtrer(); });
+        statut.appendChild(b);
+      }
+      var p = new URLSearchParams();
+      if (brut) p.set('q', brut); if (cat) p.set('cat', cat); if (selPrix.value) p.set('prix', selPrix.value);
+      if (history.replaceState) history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
     };
     champ.addEventListener('input', filtrer);
     form.addEventListener('submit', function (ev) { ev.preventDefault(); champ.blur(); filtrer(); });
     effacer.addEventListener('click', function () { champ.value = ''; filtrer(); champ.focus(); });
-    var depart = new URLSearchParams(location.search).get('q');
-    if (depart) { champ.value = depart; filtrer(); }
+    selPrix.addEventListener('change', filtrer);
+    puces.forEach(function (p) {
+      p.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var c = p.getAttribute('data-cat');
+        cat = (c && c === cat) ? '' : c;
+        poserPuces(); filtrer();
+        if (window.scrollY > sommaire.offsetTop) window.scrollTo({ top: sommaire.offsetTop, behavior: 'smooth' });
+      });
+    });
+    // Point de départ : ?q=, ?cat=, ?prix= ou un lien #rayon venu de l'accueil
+    var params = new URLSearchParams(location.search), depart = params.get('q');
+    var dieze = location.hash.slice(1), ids = Array.prototype.map.call(puces, function (p) { return p.getAttribute('data-cat'); });
+    if (ids.indexOf(params.get('cat')) > 0) cat = params.get('cat'); else if (ids.indexOf(dieze) > 0) cat = dieze;
+    if (params.get('prix')) { selPrix.value = params.get('prix'); if (selPrix.selectedIndex < 0) selPrix.value = ''; }
+    if (depart) champ.value = depart;
+    poserPuces();
+    if (depart || cat || selPrix.value) filtrer();
     // La barre de l'en-tête, déjà sur cette page : elle filtre sans recharger
     var haut = document.getElementById('entete-champ');
     if (haut) {

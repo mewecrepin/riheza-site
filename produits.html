@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens.css?v=6b2809d8">
-<link rel="stylesheet" href="style.css?v=9d84672c">
+<link rel="stylesheet" href="style.css?v=d0af4ff0">
 </head>
 <body>
 <header class="entete">
@@ -62,19 +62,33 @@
       <input type="search" id="champ-recherche" name="q" placeholder="Rechercher un produit : frigo, sac, câble…" autocomplete="off" enterkeyhint="search">
       <button type="button" class="recherche-effacer" aria-label="Effacer la recherche" hidden>×</button>
     </form>
+    <div class="choix">
+      <label class="choix-champ"><span>Prix</span>
+        <select id="filtre-prix">
+          <option value="">Tous les prix</option>
+          <option value="0-10000">Moins de 10 000 FCFA</option>
+          <option value="10000-25000">10 000 à 25 000 FCFA</option>
+          <option value="25000-50000">25 000 à 50 000 FCFA</option>
+          <option value="50000-100000">50 000 à 100 000 FCFA</option>
+          <option value="100000-250000">100 000 à 250 000 FCFA</option>
+          <option value="250000-">Plus de 250 000 FCFA</option>
+        </select>
+      </label>
+    </div>
     <p class="recherche-resultat" role="status" aria-live="polite"></p>
   </div>
 </section>
 
 <nav class="sommaire" aria-label="Rayons">
   <ul>
-    <li><a href="#nouveautes" class="sommaire-nouveau">Nouveautés</a></li>
-    <li><a href="#electromenager">Électroménager</a></li>
-    <li><a href="#electronique">Électronique</a></li>
-    <li><a href="#informatique">Informatique</a></li>
-    <li><a href="#sacs">Sacs</a></li>
-    <li><a href="#sport">Sport</a></li>
-    <li><a href="#divers">Divers</a></li>
+    <li><a href="produits.html" data-cat="">Tout</a></li>
+    <li><a href="#nouveautes" data-cat="nouveautes" class="sommaire-nouveau">Nouveautés</a></li>
+    <li><a href="#electromenager" data-cat="electromenager">Électroménager</a></li>
+    <li><a href="#electronique" data-cat="electronique">Électronique</a></li>
+    <li><a href="#informatique" data-cat="informatique">Informatique</a></li>
+    <li><a href="#sacs" data-cat="sacs">Sacs</a></li>
+    <li><a href="#sport" data-cat="sport">Sport</a></li>
+    <li><a href="#divers" data-cat="divers">Divers</a></li>
   </ul>
 </nav>
 
@@ -98,7 +112,7 @@
       </div>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="8000">
   <div class="produit-image">
     <a href="produit-ustensiles-cuisine-6-pieces.html" tabindex="-1" aria-hidden="true"><img src="images/produits/ustensiles-cuisine-6-pieces.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -112,7 +126,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Ensemble%20d'ustensiles%20de%20cuisine%2C%206%20pi%C3%A8ces%20avec%20support%20%C3%A0%208%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="40000">
   <div class="produit-image">
     <a href="produit-extracteur-jus-winning-star-st1000.html" tabindex="-1" aria-hidden="true"><img src="images/produits/extracteur-jus-winning-star-st1000.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -126,7 +140,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Extracteur%20de%20jus%20%C3%A9lectrique%20Winning%20Star%20ST-1000%20%C3%A0%2040%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="39000">
   <div class="produit-image">
     <a href="produit-barbecue-charbon-demontable.html" tabindex="-1" aria-hidden="true"><img src="images/produits/barbecue-charbon-demontable.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -140,7 +154,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Barbecue%20au%20charbon%20d%C3%A9montable%20en%20inox%20%C3%A0%2039%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="115000">
   <div class="produit-image">
     <a href="produit-table-tv-table-basse.html" tabindex="-1" aria-hidden="true"><img src="images/produits/table-tv-table-basse.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -154,7 +168,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Table%20TV%20%2B%20table%20basse%2C%20bois%20lamin%C3%A9%20et%20plateau%20vitr%C3%A9%20%C3%A0%20115%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="9500">
   <div class="produit-image">
     <a href="produit-pese-bagage-ruban-mesure-50kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/pese-bagage-ruban-mesure-50kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -168,7 +182,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20P%C3%A8se-bagage%20%C3%A9lectronique%2050%20kg%20avec%20ruban%20de%20mesure%20%C3%A0%209%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="7000">
   <div class="produit-image">
     <a href="produit-pese-bagage-electronique-50kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/pese-bagage-electronique-50kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -182,7 +196,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Mini%20p%C3%A8se-bagage%20%C3%A9lectronique%2050%20kg%20%C3%A0%207%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="45000">
   <div class="produit-image">
     <a href="produit-balance-electronique-300kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/balance-electronique-300kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -196,7 +210,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Balance%20%C3%A9lectronique%20300%20kg%20rechargeable%20%C3%A0%2045%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="13000">
   <div class="produit-image">
     <a href="produit-balance-mecanique-30kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/balance-mecanique-30kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -210,7 +224,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Balance%20m%C3%A9canique%2030%20kg%20%C3%A0%20plateau%20amovible%20%C3%A0%2013%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="20000">
   <div class="produit-image">
     <a href="produit-balance-electronique-40kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/balance-electronique-40kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -238,7 +252,7 @@
       <a class="lien-fleche" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20un%20produit%20dans%20la%20cat%C3%A9gorie%20%C3%89lectrom%C3%A9nager%20%3A%20">Demander un autre produit</a>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="147000">
   <div class="produit-image">
     <a href="produit-refrigerateur-neon-142.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-neon-142.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Neon%20142%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-neon-142.html" data-partager data-titre="R&#233;frig&#233;rateur Neon 142 litres" data-url="https://www.rihezastore.com/produit-refrigerateur-neon-142.html" aria-label="Partager : R&#233;frig&#233;rateur Neon 142 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -251,7 +265,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Neon%20142%20litres%20%C3%A0%20147%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="285000">
   <div class="produit-image">
     <a href="produit-refrigerateur-nexgen-310.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-nexgen-310.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Nexgen%20310%20L%20No%20Frost%20avec%20distributeur%20d'eau%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-nexgen-310.html" data-partager data-titre="R&#233;frig&#233;rateur Nexgen 310 L No Frost avec distributeur d&#39;eau" data-url="https://www.rihezastore.com/produit-refrigerateur-nexgen-310.html" aria-label="Partager : R&#233;frig&#233;rateur Nexgen 310 L No Frost avec distributeur d&#39;eau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -264,7 +278,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Nexgen%20310%20L%20No%20Frost%20avec%20distributeur%20d'eau%20%C3%A0%20285%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="249000">
   <div class="produit-image">
     <a href="produit-machine-laver-roch-12kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/machine-laver-roch-12kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Machine%20%C3%A0%20laver%20Roch%2012%20kg%20Inverter%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-machine-laver-roch-12kg.html" data-partager data-titre="Machine &#224; laver Roch 12 kg Inverter" data-url="https://www.rihezastore.com/produit-machine-laver-roch-12kg.html" aria-label="Partager : Machine &#224; laver Roch 12 kg Inverter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -277,7 +291,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Machine%20%C3%A0%20laver%20Roch%2012%20kg%20Inverter%20%C3%A0%20249%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="39900">
   <div class="produit-image">
     <a href="produit-chauffe-eau-anlabeier.html" tabindex="-1" aria-hidden="true"><img src="images/produits/chauffe-eau-anlabeier.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Chauffe-eau%20instantan%C3%A9%20de%20douche%20Anlabeier%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-chauffe-eau-anlabeier.html" data-partager data-titre="Chauffe-eau instantan&#233; de douche Anlabeier" data-url="https://www.rihezastore.com/produit-chauffe-eau-anlabeier.html" aria-label="Partager : Chauffe-eau instantan&#233; de douche Anlabeier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -290,7 +304,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Chauffe-eau%20instantan%C3%A9%20de%20douche%20Anlabeier%20%C3%A0%2039%20900%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="6500">
   <div class="produit-image">
     <a href="produit-bouilloire-yaki.html" tabindex="-1" aria-hidden="true"><img src="images/produits/bouilloire-yaki.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Bouilloire%20%C3%A9lectrique%20Yaki%202%2C5%20L%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-bouilloire-yaki.html" data-partager data-titre="Bouilloire &#233;lectrique Yaki 2,5 L" data-url="https://www.rihezastore.com/produit-bouilloire-yaki.html" aria-label="Partager : Bouilloire &#233;lectrique Yaki 2,5 L"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -303,7 +317,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Bouilloire%20%C3%A9lectrique%20Yaki%202%2C5%20L%20%C3%A0%206%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="30000">
   <div class="produit-image">
     <a href="produit-regulateur-akai.html" tabindex="-1" aria-hidden="true"><img src="images/produits/regulateur-akai.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9gulateur%20de%20tension%20Akai%202000%20VA%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-regulateur-akai.html" data-partager data-titre="R&#233;gulateur de tension Akai 2000 VA" data-url="https://www.rihezastore.com/produit-regulateur-akai.html" aria-label="Partager : R&#233;gulateur de tension Akai 2000 VA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -316,7 +330,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9gulateur%20de%20tension%20Akai%202000%20VA%20%C3%A0%2030%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="70000">
   <div class="produit-image">
     <a href="produit-regulateur-akai-2.html" tabindex="-1" aria-hidden="true"><img src="images/produits/regulateur-akai.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9gulateur%20de%20tension%20Akai%205000%20VA%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-regulateur-akai-2.html" data-partager data-titre="R&#233;gulateur de tension Akai 5000 VA" data-url="https://www.rihezastore.com/produit-regulateur-akai-2.html" aria-label="Partager : R&#233;gulateur de tension Akai 5000 VA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -329,7 +343,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9gulateur%20de%20tension%20Akai%205000%20VA%20%C3%A0%2070%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="165000">
   <div class="produit-image">
     <a href="produit-cuisiniere-hisense-4-foyers.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-hisense-4-foyers.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20Hisense%204%20foyers%20avec%20four%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-hisense-4-foyers.html" data-partager data-titre="Cuisini&#232;re &#224; gaz Hisense 4 foyers avec four" data-url="https://www.rihezastore.com/produit-cuisiniere-hisense-4-foyers.html" aria-label="Partager : Cuisini&#232;re &#224; gaz Hisense 4 foyers avec four"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -342,7 +356,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20Hisense%204%20foyers%20avec%20four%20%C3%A0%20165%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="295000">
   <div class="produit-image">
     <a href="produit-cuisiniere-hisense-5-foyers.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-hisense-5-foyers.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20Hisense%205%20foyers%20four-r%C3%B4tisserie%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-hisense-5-foyers.html" data-partager data-titre="Cuisini&#232;re &#224; gaz Hisense 5 foyers four-r&#244;tisserie" data-url="https://www.rihezastore.com/produit-cuisiniere-hisense-5-foyers.html" aria-label="Partager : Cuisini&#232;re &#224; gaz Hisense 5 foyers four-r&#244;tisserie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -355,7 +369,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20Hisense%205%20foyers%20four-r%C3%B4tisserie%20%C3%A0%20295%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="655000">
   <div class="produit-image">
     <a href="produit-refrigerateur-vitrine-hisense-620.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-vitrine-hisense-620.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20vitrine%20Hisense%20620%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-vitrine-hisense-620.html" data-partager data-titre="R&#233;frig&#233;rateur vitrine Hisense 620 litres" data-url="https://www.rihezastore.com/produit-refrigerateur-vitrine-hisense-620.html" aria-label="Partager : R&#233;frig&#233;rateur vitrine Hisense 620 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -368,7 +382,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20vitrine%20Hisense%20620%20litres%20%C3%A0%20655%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="270000">
   <div class="produit-image">
     <a href="produit-refrigerateur-vitrine-hisense-282.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-vitrine-hisense-282.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20vitrine%20Hisense%20282%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-vitrine-hisense-282.html" data-partager data-titre="R&#233;frig&#233;rateur vitrine Hisense 282 litres" data-url="https://www.rihezastore.com/produit-refrigerateur-vitrine-hisense-282.html" aria-label="Partager : R&#233;frig&#233;rateur vitrine Hisense 282 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -381,7 +395,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20vitrine%20Hisense%20282%20litres%20%C3%A0%20270%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="57000">
   <div class="produit-image">
     <a href="produit-micro-ondes-hisense-20l.html" tabindex="-1" aria-hidden="true"><img src="images/produits/micro-ondes-hisense-20l.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Four%20%C3%A0%20micro-ondes%20Hisense%2020%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-micro-ondes-hisense-20l.html" data-partager data-titre="Four &#224; micro-ondes Hisense 20 litres" data-url="https://www.rihezastore.com/produit-micro-ondes-hisense-20l.html" aria-label="Partager : Four &#224; micro-ondes Hisense 20 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -394,7 +408,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Four%20%C3%A0%20micro-ondes%20Hisense%2020%20litres%20%C3%A0%2057%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="120000">
   <div class="produit-image">
     <a href="produit-refrigerateur-hisense-123.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-hisense-123.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Hisense%20123%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-hisense-123.html" data-partager data-titre="R&#233;frig&#233;rateur Hisense 123 litres" data-url="https://www.rihezastore.com/produit-refrigerateur-hisense-123.html" aria-label="Partager : R&#233;frig&#233;rateur Hisense 123 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -407,7 +421,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Hisense%20123%20litres%20%C3%A0%20120%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="159000">
   <div class="produit-image">
     <a href="produit-refrigerateur-hisense-205-distributeur.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-hisense-205-distributeur.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Hisense%20205%20L%20avec%20distributeur%20d'eau%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-hisense-205-distributeur.html" data-partager data-titre="R&#233;frig&#233;rateur Hisense 205 L avec distributeur d&#39;eau" data-url="https://www.rihezastore.com/produit-refrigerateur-hisense-205-distributeur.html" aria-label="Partager : R&#233;frig&#233;rateur Hisense 205 L avec distributeur d&#39;eau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -420,7 +434,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Hisense%20205%20L%20avec%20distributeur%20d'eau%20%C3%A0%20159%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="225000">
   <div class="produit-image">
     <a href="produit-refrigerateur-nexgen-263.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-nexgen-263.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Nexgen%20263%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-nexgen-263.html" data-partager data-titre="R&#233;frig&#233;rateur Nexgen 263 litres" data-url="https://www.rihezastore.com/produit-refrigerateur-nexgen-263.html" aria-label="Partager : R&#233;frig&#233;rateur Nexgen 263 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -433,7 +447,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Nexgen%20263%20litres%20%C3%A0%20225%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="225000">
   <div class="produit-image">
     <a href="produit-congelateur-nexgen-185.html" tabindex="-1" aria-hidden="true"><img src="images/produits/congelateur-nexgen-185.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cong%C3%A9lateur%20debout%20Nexgen%20185%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-congelateur-nexgen-185.html" data-partager data-titre="Cong&#233;lateur debout Nexgen 185 litres" data-url="https://www.rihezastore.com/produit-congelateur-nexgen-185.html" aria-label="Partager : Cong&#233;lateur debout Nexgen 185 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -446,7 +460,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cong%C3%A9lateur%20debout%20Nexgen%20185%20litres%20%C3%A0%20225%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="270000">
   <div class="produit-image">
     <a href="produit-congelateur-nexgen-247.html" tabindex="-1" aria-hidden="true"><img src="images/produits/congelateur-nexgen-247.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cong%C3%A9lateur%20debout%20Nexgen%20247%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-congelateur-nexgen-247.html" data-partager data-titre="Cong&#233;lateur debout Nexgen 247 litres" data-url="https://www.rihezastore.com/produit-congelateur-nexgen-247.html" aria-label="Partager : Cong&#233;lateur debout Nexgen 247 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -459,7 +473,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cong%C3%A9lateur%20debout%20Nexgen%20247%20litres%20%C3%A0%20270%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="265000">
   <div class="produit-image">
     <a href="produit-refrigerateur-neon-311.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-neon-311.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Neon%20311%20litres%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-neon-311.html" data-partager data-titre="R&#233;frig&#233;rateur Neon 311 litres" data-url="https://www.rihezastore.com/produit-refrigerateur-neon-311.html" aria-label="Partager : R&#233;frig&#233;rateur Neon 311 litres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -472,7 +486,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Neon%20311%20litres%20%C3%A0%20265%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="219000">
   <div class="produit-image">
     <a href="produit-refrigerateur-hisense-256-distributeur.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-hisense-256-distributeur.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Hisense%20256%20L%20avec%20distributeur%20d'eau%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-hisense-256-distributeur.html" data-partager data-titre="R&#233;frig&#233;rateur Hisense 256 L avec distributeur d&#39;eau" data-url="https://www.rihezastore.com/produit-refrigerateur-hisense-256-distributeur.html" aria-label="Partager : R&#233;frig&#233;rateur Hisense 256 L avec distributeur d&#39;eau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -485,7 +499,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Hisense%20256%20L%20avec%20distributeur%20d'eau%20%C3%A0%20219%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="229000">
   <div class="produit-image">
     <a href="produit-refrigerateur-hisense-268-distributeur.html" tabindex="-1" aria-hidden="true"><img src="images/produits/refrigerateur-hisense-268-distributeur.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9frig%C3%A9rateur%20Hisense%20268%20L%20avec%20distributeur%20d'eau%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-refrigerateur-hisense-268-distributeur.html" data-partager data-titre="R&#233;frig&#233;rateur Hisense 268 L avec distributeur d&#39;eau" data-url="https://www.rihezastore.com/produit-refrigerateur-hisense-268-distributeur.html" aria-label="Partager : R&#233;frig&#233;rateur Hisense 268 L avec distributeur d&#39;eau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -498,7 +512,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9frig%C3%A9rateur%20Hisense%20268%20L%20avec%20distributeur%20d'eau%20%C3%A0%20229%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="15000">
   <div class="produit-image">
     <a href="produit-cuisiniere-table-roch-3-foyers.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-table-roch-3-foyers.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20de%20table%20Roch%203%20foyers%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-table-roch-3-foyers.html" data-partager data-titre="Cuisini&#232;re &#224; gaz de table Roch 3 foyers" data-url="https://www.rihezastore.com/produit-cuisiniere-table-roch-3-foyers.html" aria-label="Partager : Cuisini&#232;re &#224; gaz de table Roch 3 foyers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -511,7 +525,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20de%20table%20Roch%203%20foyers%20%C3%A0%2015%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="15000">
   <div class="produit-image">
     <a href="produit-cuisiniere-table-elcon-3-foyers.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-table-elcon-3-foyers.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20de%20table%20Elcon%203%20foyers%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-table-elcon-3-foyers.html" data-partager data-titre="Cuisini&#232;re &#224; gaz de table Elcon 3 foyers" data-url="https://www.rihezastore.com/produit-cuisiniere-table-elcon-3-foyers.html" aria-label="Partager : Cuisini&#232;re &#224; gaz de table Elcon 3 foyers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -524,7 +538,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20de%20table%20Elcon%203%20foyers%20%C3%A0%2015%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="20000">
   <div class="produit-image">
     <a href="produit-cuisiniere-table-roch-vitree.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-table-roch-vitree.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20de%20table%20Roch%20vitr%C3%A9e%203%20foyers%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-table-roch-vitree.html" data-partager data-titre="Cuisini&#232;re &#224; gaz de table Roch vitr&#233;e 3 foyers" data-url="https://www.rihezastore.com/produit-cuisiniere-table-roch-vitree.html" aria-label="Partager : Cuisini&#232;re &#224; gaz de table Roch vitr&#233;e 3 foyers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -537,7 +551,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20de%20table%20Roch%20vitr%C3%A9e%203%20foyers%20%C3%A0%2020%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="145000">
   <div class="produit-image">
     <a href="produit-cuisiniere-neon-ck404.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-neon-ck404.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20Neon%20NE-CK404%20avec%20four%2C%2060%20x%2060%20cm%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-neon-ck404.html" data-partager data-titre="Cuisini&#232;re &#224; gaz Neon NE-CK404 avec four, 60 x 60 cm" data-url="https://www.rihezastore.com/produit-cuisiniere-neon-ck404.html" aria-label="Partager : Cuisini&#232;re &#224; gaz Neon NE-CK404 avec four, 60 x 60 cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -550,7 +564,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20Neon%20NE-CK404%20avec%20four%2C%2060%20x%2060%20cm%20%C3%A0%20145%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="105000">
   <div class="produit-image">
     <a href="produit-cuisiniere-neon-cr423.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cuisiniere-neon-cr423.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cuisini%C3%A8re%20%C3%A0%20gaz%20Neon%20NE-CR423%20avec%20four%2C%2050%20x%2050%20cm%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cuisiniere-neon-cr423.html" data-partager data-titre="Cuisini&#232;re &#224; gaz Neon NE-CR423 avec four, 50 x 50 cm" data-url="https://www.rihezastore.com/produit-cuisiniere-neon-cr423.html" aria-label="Partager : Cuisini&#232;re &#224; gaz Neon NE-CR423 avec four, 50 x 50 cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -563,7 +577,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cuisini%C3%A8re%20%C3%A0%20gaz%20Neon%20NE-CR423%20avec%20four%2C%2050%20x%2050%20cm%20%C3%A0%20105%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electromenager" data-prix="40000">
   <div class="produit-image">
     <a href="produit-extracteur-jus-winning-star-st1000.html" tabindex="-1" aria-hidden="true"><img src="images/produits/extracteur-jus-winning-star-st1000.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -590,7 +604,7 @@
       <a class="lien-fleche" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20un%20produit%20dans%20la%20cat%C3%A9gorie%20%C3%89lectronique%20%3A%20">Demander un autre produit</a>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="330000">
   <div class="produit-image">
     <a href="produit-samsung-s23-ultra.html" tabindex="-1" aria-hidden="true"><img src="images/produits/samsung-s23-ultra.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Samsung%20Galaxy%20S23%20Ultra%20512%20Go%20%2F%2012%20Go%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-samsung-s23-ultra.html" data-partager data-titre="Samsung Galaxy S23 Ultra 512 Go / 12 Go" data-url="https://www.rihezastore.com/produit-samsung-s23-ultra.html" aria-label="Partager : Samsung Galaxy S23 Ultra 512 Go / 12 Go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -603,7 +617,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Samsung%20Galaxy%20S23%20Ultra%20512%20Go%20%2F%2012%20Go%20%C3%A0%20330%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="15000">
   <div class="produit-image">
     <a href="produit-power-bank-zealot.html" tabindex="-1" aria-hidden="true"><img src="images/produits/power-bank-zealot.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Power%20bank%20Zealot%20Y2200%2020%20000%20mAh%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-power-bank-zealot.html" data-partager data-titre="Power bank Zealot Y2200 20 000 mAh" data-url="https://www.rihezastore.com/produit-power-bank-zealot.html" aria-label="Partager : Power bank Zealot Y2200 20 000 mAh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -616,7 +630,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Power%20bank%20Zealot%20Y2200%2020%20000%20mAh%20%C3%A0%2015%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="169000">
   <div class="produit-image">
     <a href="produit-mini-chaine-hisense-ha700.html" tabindex="-1" aria-hidden="true"><img src="images/produits/mini-chaine-hisense-ha700.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Mini%20cha%C3%AEne%20Hi-Fi%20Hisense%20HA700%2C%20810%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-mini-chaine-hisense-ha700.html" data-partager data-titre="Mini cha&#238;ne Hi-Fi Hisense HA700, 810 W" data-url="https://www.rihezastore.com/produit-mini-chaine-hisense-ha700.html" aria-label="Partager : Mini cha&#238;ne Hi-Fi Hisense HA700, 810 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -629,7 +643,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Mini%20cha%C3%AEne%20Hi-Fi%20Hisense%20HA700%2C%20810%20W%20%C3%A0%20169%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="65000">
   <div class="produit-image">
     <a href="produit-barre-de-son-hisense-hs1800.html" tabindex="-1" aria-hidden="true"><img src="images/produits/barre-de-son-hisense-hs1800.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Barre%20de%20son%20Hisense%20HS1800%2C%20140%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-barre-de-son-hisense-hs1800.html" data-partager data-titre="Barre de son Hisense HS1800, 140 W" data-url="https://www.rihezastore.com/produit-barre-de-son-hisense-hs1800.html" aria-label="Partager : Barre de son Hisense HS1800, 140 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -642,7 +656,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Barre%20de%20son%20Hisense%20HS1800%2C%20140%20W%20%C3%A0%2065%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="109000">
   <div class="produit-image">
     <a href="produit-barre-de-son-hisense-hs3100.html" tabindex="-1" aria-hidden="true"><img src="images/produits/barre-de-son-hisense-hs3100.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Barre%20de%20son%20Hisense%20HS3100%2C%20480%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-barre-de-son-hisense-hs3100.html" data-partager data-titre="Barre de son Hisense HS3100, 480 W" data-url="https://www.rihezastore.com/produit-barre-de-son-hisense-hs3100.html" aria-label="Partager : Barre de son Hisense HS3100, 480 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -655,7 +669,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Barre%20de%20son%20Hisense%20HS3100%2C%20480%20W%20%C3%A0%20109%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="12000">
   <div class="produit-image">
     <a href="produit-casque-bose-quietcomfort-ultra.html" tabindex="-1" aria-hidden="true"><img src="images/produits/casque-bose-quietcomfort-ultra.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Casque%20Bose%20QuietComfort%20Ultra%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-casque-bose-quietcomfort-ultra.html" data-partager data-titre="Casque Bose QuietComfort Ultra" data-url="https://www.rihezastore.com/produit-casque-bose-quietcomfort-ultra.html" aria-label="Partager : Casque Bose QuietComfort Ultra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -668,7 +682,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Casque%20Bose%20QuietComfort%20Ultra%20%C3%A0%2012%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="22000">
   <div class="produit-image">
     <a href="produit-casque-gaming-onikuma-gt808.html" tabindex="-1" aria-hidden="true"><img src="images/produits/casque-gaming-onikuma-gt808.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Casque%20gaming%20Onikuma%20GT808%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-casque-gaming-onikuma-gt808.html" data-partager data-titre="Casque gaming Onikuma GT808" data-url="https://www.rihezastore.com/produit-casque-gaming-onikuma-gt808.html" aria-label="Partager : Casque gaming Onikuma GT808"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -681,7 +695,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Casque%20gaming%20Onikuma%20GT808%20%C3%A0%2022%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="12000">
   <div class="produit-image">
     <a href="produit-micro-cravate-k31-pro.html" tabindex="-1" aria-hidden="true"><img src="images/produits/micro-cravate-k31-pro.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Micro-cravate%20sans%20fil%20K31%20Pro%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-micro-cravate-k31-pro.html" data-partager data-titre="Micro-cravate sans fil K31 Pro" data-url="https://www.rihezastore.com/produit-micro-cravate-k31-pro.html" aria-label="Partager : Micro-cravate sans fil K31 Pro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -694,7 +708,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Micro-cravate%20sans%20fil%20K31%20Pro%20%C3%A0%2012%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="23000">
   <div class="produit-image">
     <a href="produit-micro-plokama-wm60.html" tabindex="-1" aria-hidden="true"><img src="images/produits/micro-plokama-wm60.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Plokama%20WM-60%20%3A%20micro-cravate%20%2B%20micro%20%C3%A0%20main%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-micro-plokama-wm60.html" data-partager data-titre="Plokama WM-60 : micro-cravate + micro &#224; main" data-url="https://www.rihezastore.com/produit-micro-plokama-wm60.html" aria-label="Partager : Plokama WM-60 : micro-cravate + micro &#224; main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -707,7 +721,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Plokama%20WM-60%20%3A%20micro-cravate%20%2B%20micro%20%C3%A0%20main%20%C3%A0%2023%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="28000">
   <div class="produit-image">
     <a href="produit-camera-securite-v380.html" tabindex="-1" aria-hidden="true"><img src="images/produits/camera-securite-v380.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Cam%C3%A9ra%20de%20s%C3%A9curit%C3%A9%20PTZ%204MP%20V380MAX-BQ3%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-camera-securite-v380.html" data-partager data-titre="Cam&#233;ra de s&#233;curit&#233; PTZ 4MP V380MAX-BQ3" data-url="https://www.rihezastore.com/produit-camera-securite-v380.html" aria-label="Partager : Cam&#233;ra de s&#233;curit&#233; PTZ 4MP V380MAX-BQ3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -720,7 +734,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Cam%C3%A9ra%20de%20s%C3%A9curit%C3%A9%20PTZ%204MP%20V380MAX-BQ3%20%C3%A0%2028%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="9900">
   <div class="produit-image">
     <a href="produit-chargeur-xiaomi-120w.html" tabindex="-1" aria-hidden="true"><img src="images/produits/chargeur-xiaomi-120w.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Chargeur%20Turbo%20GaN%20Xiaomi%20HyperCharge%20120%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-chargeur-xiaomi-120w.html" data-partager data-titre="Chargeur Turbo GaN Xiaomi HyperCharge 120 W" data-url="https://www.rihezastore.com/produit-chargeur-xiaomi-120w.html" aria-label="Partager : Chargeur Turbo GaN Xiaomi HyperCharge 120 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -733,7 +747,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Chargeur%20Turbo%20GaN%20Xiaomi%20HyperCharge%20120%20W%20%C3%A0%209%20900%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="1500">
   <div class="produit-image">
     <a href="produit-cable-borofone-bx110-usb-a.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cable-borofone-bx110-usb-a.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=C%C3%A2ble%20charge%20rapide%20Borofone%20BX110%2C%20USB-A%20vers%20Type-C%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cable-borofone-bx110-usb-a.html" data-partager data-titre="C&#226;ble charge rapide Borofone BX110, USB-A vers Type-C" data-url="https://www.rihezastore.com/produit-cable-borofone-bx110-usb-a.html" aria-label="Partager : C&#226;ble charge rapide Borofone BX110, USB-A vers Type-C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -746,7 +760,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20C%C3%A2ble%20charge%20rapide%20Borofone%20BX110%2C%20USB-A%20vers%20Type-C%20%C3%A0%201%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="2000">
   <div class="produit-image">
     <a href="produit-cable-borofone-bx110-usb-c.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cable-borofone-bx110-usb-c.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=C%C3%A2ble%20charge%20rapide%20Borofone%20BX110%2C%20Type-C%20vers%20Type-C%2060%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cable-borofone-bx110-usb-c.html" data-partager data-titre="C&#226;ble charge rapide Borofone BX110, Type-C vers Type-C 60 W" data-url="https://www.rihezastore.com/produit-cable-borofone-bx110-usb-c.html" aria-label="Partager : C&#226;ble charge rapide Borofone BX110, Type-C vers Type-C 60 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -759,7 +773,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20C%C3%A2ble%20charge%20rapide%20Borofone%20BX110%2C%20Type-C%20vers%20Type-C%2060%20W%20%C3%A0%202%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="3000">
   <div class="produit-image">
     <a href="produit-cable-xiaomi-120w.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cable-xiaomi-120w.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=C%C3%A2ble%20Xiaomi%20HyperCharge%20Turbo%20120%20W%2C%20USB-A%20vers%20Type-C%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cable-xiaomi-120w.html" data-partager data-titre="C&#226;ble Xiaomi HyperCharge Turbo 120 W, USB-A vers Type-C" data-url="https://www.rihezastore.com/produit-cable-xiaomi-120w.html" aria-label="Partager : C&#226;ble Xiaomi HyperCharge Turbo 120 W, USB-A vers Type-C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -772,7 +786,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20C%C3%A2ble%20Xiaomi%20HyperCharge%20Turbo%20120%20W%2C%20USB-A%20vers%20Type-C%20%C3%A0%203%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="2500">
   <div class="produit-image">
     <a href="produit-cable-iphone-ango-power.html" tabindex="-1" aria-hidden="true"><img src="images/produits/cable-iphone-ango-power.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=C%C3%A2ble%20de%20charge%20iPhone%20Ango%20Power%20Lightning%206A%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-cable-iphone-ango-power.html" data-partager data-titre="C&#226;ble de charge iPhone Ango Power Lightning 6A" data-url="https://www.rihezastore.com/produit-cable-iphone-ango-power.html" aria-label="Partager : C&#226;ble de charge iPhone Ango Power Lightning 6A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -785,7 +799,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20C%C3%A2ble%20de%20charge%20iPhone%20Ango%20Power%20Lightning%206A%20%C3%A0%202%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="7000">
   <div class="produit-image">
     <a href="produit-rallonge-6-prises-usb.html" tabindex="-1" aria-hidden="true"><img src="images/produits/rallonge-6-prises-usb.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Rallonge%20%C3%A9lectrique%206%20prises%20%2B%203%20ports%20USB%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-rallonge-6-prises-usb.html" data-partager data-titre="Rallonge &#233;lectrique 6 prises + 3 ports USB" data-url="https://www.rihezastore.com/produit-rallonge-6-prises-usb.html" aria-label="Partager : Rallonge &#233;lectrique 6 prises + 3 ports USB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -798,7 +812,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Rallonge%20%C3%A9lectrique%206%20prises%20%2B%203%20ports%20USB%20%C3%A0%207%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="16000">
   <div class="produit-image">
     <a href="produit-rallonge-ldnio-sc10610c.html" tabindex="-1" aria-hidden="true"><img src="images/produits/rallonge-ldnio-sc10610c.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Rallonge%20parasurtenseur%20LDNIO%20SC-10610C%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-rallonge-ldnio-sc10610c.html" data-partager data-titre="Rallonge parasurtenseur LDNIO SC-10610C" data-url="https://www.rihezastore.com/produit-rallonge-ldnio-sc10610c.html" aria-label="Partager : Rallonge parasurtenseur LDNIO SC-10610C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -811,7 +825,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Rallonge%20parasurtenseur%20LDNIO%20SC-10610C%20%C3%A0%2016%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="12000">
   <div class="produit-image">
     <a href="produit-rallonge-pdu-8000w.html" tabindex="-1" aria-hidden="true"><img src="images/produits/rallonge-pdu-8000w.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Rallonge%20PDU%20industrielle%208000%20W%2C%203%20prises%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-rallonge-pdu-8000w.html" data-partager data-titre="Rallonge PDU industrielle 8000 W, 3 prises" data-url="https://www.rihezastore.com/produit-rallonge-pdu-8000w.html" aria-label="Partager : Rallonge PDU industrielle 8000 W, 3 prises"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -824,7 +838,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Rallonge%20PDU%20industrielle%208000%20W%2C%203%20prises%20%C3%A0%2012%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="15000">
   <div class="produit-image">
     <a href="produit-support-tv-mobile-26-65.html" tabindex="-1" aria-hidden="true"><img src="images/produits/support-tv-mobile-26-65.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Support%20TV%20mural%20mobile%2026%22%20%C3%A0%2065%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-support-tv-mobile-26-65.html" data-partager data-titre="Support TV mural mobile 26&quot; &#224; 65&quot;" data-url="https://www.rihezastore.com/produit-support-tv-mobile-26-65.html" aria-label="Partager : Support TV mural mobile 26&quot; &#224; 65&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -837,7 +851,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Support%20TV%20mural%20mobile%2026%22%20%C3%A0%2065%22%20%C3%A0%2015%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="9000">
   <div class="produit-image">
     <a href="produit-support-tv-pivotant-14-43.html" tabindex="-1" aria-hidden="true"><img src="images/produits/support-tv-pivotant-14-43.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Support%20TV%20mural%20pivotant%2014%22%20%C3%A0%2043%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-support-tv-pivotant-14-43.html" data-partager data-titre="Support TV mural pivotant 14&quot; &#224; 43&quot;" data-url="https://www.rihezastore.com/produit-support-tv-pivotant-14-43.html" aria-label="Partager : Support TV mural pivotant 14&quot; &#224; 43&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -850,7 +864,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Support%20TV%20mural%20pivotant%2014%22%20%C3%A0%2043%22%20%C3%A0%209%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="electronique" data-prix="45000">
   <div class="produit-image">
     <a href="produit-support-tv-pied-32-75.html" tabindex="-1" aria-hidden="true"><img src="images/produits/support-tv-pied-32-75.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Support%20TV%20sur%20pied%2032%22%20%C3%A0%2075%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-support-tv-pied-32-75.html" data-partager data-titre="Support TV sur pied 32&quot; &#224; 75&quot;" data-url="https://www.rihezastore.com/produit-support-tv-pied-32-75.html" aria-label="Partager : Support TV sur pied 32&quot; &#224; 75&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -876,7 +890,7 @@
       <a class="lien-fleche" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20un%20produit%20dans%20la%20cat%C3%A9gorie%20Informatique%20et%20accessoires%20%3A%20">Demander un autre produit</a>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="39000">
   <div class="produit-image">
     <a href="produit-routeur-cudy-lt400.html" tabindex="-1" aria-hidden="true"><img src="images/produits/routeur-cudy-lt400.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Routeur%20Wi-Fi%204G%20LTE%20Cudy%20LT400%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-routeur-cudy-lt400.html" data-partager data-titre="Routeur Wi-Fi 4G LTE Cudy LT400" data-url="https://www.rihezastore.com/produit-routeur-cudy-lt400.html" aria-label="Partager : Routeur Wi-Fi 4G LTE Cudy LT400"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -889,7 +903,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Routeur%20Wi-Fi%204G%20LTE%20Cudy%20LT400%20%C3%A0%2039%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="19000">
   <div class="produit-image">
     <a href="produit-routeur-tplink-wr940n.html" tabindex="-1" aria-hidden="true"><img src="images/produits/routeur-tplink-wr940n.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Routeur%20Wi-Fi%20TP-Link%20TL-WR940N%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-routeur-tplink-wr940n.html" data-partager data-titre="Routeur Wi-Fi TP-Link TL-WR940N" data-url="https://www.rihezastore.com/produit-routeur-tplink-wr940n.html" aria-label="Partager : Routeur Wi-Fi TP-Link TL-WR940N"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -902,7 +916,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Routeur%20Wi-Fi%20TP-Link%20TL-WR940N%20%C3%A0%2019%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="8500">
   <div class="produit-image">
     <a href="produit-adaptateur-4en1-typec.html" tabindex="-1" aria-hidden="true"><img src="images/produits/adaptateur-4en1-typec.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Adaptateur%20multifonction%204%20en%201%20Type-C%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-adaptateur-4en1-typec.html" data-partager data-titre="Adaptateur multifonction 4 en 1 Type-C" data-url="https://www.rihezastore.com/produit-adaptateur-4en1-typec.html" aria-label="Partager : Adaptateur multifonction 4 en 1 Type-C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -915,7 +929,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Adaptateur%20multifonction%204%20en%201%20Type-C%20%C3%A0%208%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="10000">
   <div class="produit-image">
     <a href="produit-adaptateur-4en1-usb.html" tabindex="-1" aria-hidden="true"><img src="images/produits/adaptateur-4en1-usb.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Adaptateur%20multifonction%204%20en%201%20USB-B%2FC%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-adaptateur-4en1-usb.html" data-partager data-titre="Adaptateur multifonction 4 en 1 USB-B/C" data-url="https://www.rihezastore.com/produit-adaptateur-4en1-usb.html" aria-label="Partager : Adaptateur multifonction 4 en 1 USB-B/C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -928,7 +942,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Adaptateur%20multifonction%204%20en%201%20USB-B%2FC%20%C3%A0%2010%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="25000">
   <div class="produit-image">
     <a href="produit-repeteur-comfast-wr758ac.html" tabindex="-1" aria-hidden="true"><img src="images/produits/repeteur-comfast-wr758ac.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9p%C3%A9teur%20Wi-Fi%20Comfast%20CF-WR758AC%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-repeteur-comfast-wr758ac.html" data-partager data-titre="R&#233;p&#233;teur Wi-Fi Comfast CF-WR758AC" data-url="https://www.rihezastore.com/produit-repeteur-comfast-wr758ac.html" aria-label="Partager : R&#233;p&#233;teur Wi-Fi Comfast CF-WR758AC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -941,7 +955,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9p%C3%A9teur%20Wi-Fi%20Comfast%20CF-WR758AC%20%C3%A0%2025%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="42000">
   <div class="produit-image">
     <a href="produit-repeteur-cudy-re3000.html" tabindex="-1" aria-hidden="true"><img src="images/produits/repeteur-cudy-re3000.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9p%C3%A9teur%20Wi-Fi%20Cudy%20RE3000%2C%203%20Gbps%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-repeteur-cudy-re3000.html" data-partager data-titre="R&#233;p&#233;teur Wi-Fi Cudy RE3000, 3 Gbps" data-url="https://www.rihezastore.com/produit-repeteur-cudy-re3000.html" aria-label="Partager : R&#233;p&#233;teur Wi-Fi Cudy RE3000, 3 Gbps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -954,7 +968,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9p%C3%A9teur%20Wi-Fi%20Cudy%20RE3000%2C%203%20Gbps%20%C3%A0%2042%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="20000">
   <div class="produit-image">
     <a href="produit-repeteur-cudy-re2000.html" tabindex="-1" aria-hidden="true"><img src="images/produits/repeteur-cudy-re2000.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=R%C3%A9p%C3%A9teur%20Wi-Fi%20Cudy%20RE2000%2C%201200%20Mbps%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-repeteur-cudy-re2000.html" data-partager data-titre="R&#233;p&#233;teur Wi-Fi Cudy RE2000, 1200 Mbps" data-url="https://www.rihezastore.com/produit-repeteur-cudy-re2000.html" aria-label="Partager : R&#233;p&#233;teur Wi-Fi Cudy RE2000, 1200 Mbps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -967,7 +981,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20R%C3%A9p%C3%A9teur%20Wi-Fi%20Cudy%20RE2000%2C%201200%20Mbps%20%C3%A0%2020%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="42000">
   <div class="produit-image">
     <a href="produit-kit-routeurs-nc-link-ap211m.html" tabindex="-1" aria-hidden="true"><img src="images/produits/kit-routeurs-nc-link-ap211m.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Kit%20de%202%20routeurs%20Wi-Fi%20ext%C3%A9rieur%20NC-Link%20NC-AP211M%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-kit-routeurs-nc-link-ap211m.html" data-partager data-titre="Kit de 2 routeurs Wi-Fi ext&#233;rieur NC-Link NC-AP211M" data-url="https://www.rihezastore.com/produit-kit-routeurs-nc-link-ap211m.html" aria-label="Partager : Kit de 2 routeurs Wi-Fi ext&#233;rieur NC-Link NC-AP211M"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -980,7 +994,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Kit%20de%202%20routeurs%20Wi-Fi%20ext%C3%A9rieur%20NC-Link%20NC-AP211M%20%C3%A0%2042%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="15000">
   <div class="produit-image">
     <a href="produit-clavier-souris-sans-fil.html" tabindex="-1" aria-hidden="true"><img src="images/produits/clavier-souris-sans-fil.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Clavier%20%2B%20souris%20sans%20fil%202%2C4%20GHz%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-clavier-souris-sans-fil.html" data-partager data-titre="Clavier + souris sans fil 2,4 GHz" data-url="https://www.rihezastore.com/produit-clavier-souris-sans-fil.html" aria-label="Partager : Clavier + souris sans fil 2,4 GHz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -993,7 +1007,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Clavier%20%2B%20souris%20sans%20fil%202%2C4%20GHz%20%C3%A0%2015%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="18000">
   <div class="produit-image">
     <a href="produit-pointeur-laser-baseus.html" tabindex="-1" aria-hidden="true"><img src="images/produits/pointeur-laser-baseus.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Pointeur%20laser%20rechargeable%20Baseus%20Orange%20Dot%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-pointeur-laser-baseus.html" data-partager data-titre="Pointeur laser rechargeable Baseus Orange Dot" data-url="https://www.rihezastore.com/produit-pointeur-laser-baseus.html" aria-label="Partager : Pointeur laser rechargeable Baseus Orange Dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1006,7 +1020,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Pointeur%20laser%20rechargeable%20Baseus%20Orange%20Dot%20%C3%A0%2018%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="6500">
   <div class="produit-image">
     <a href="produit-souris-sans-fil-ergonomique.html" tabindex="-1" aria-hidden="true"><img src="images/produits/souris-sans-fil-ergonomique.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Souris%20sans%20fil%202%2C4%20GHz%2C%20mod%C3%A8le%20ergonomique%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-souris-sans-fil-ergonomique.html" data-partager data-titre="Souris sans fil 2,4 GHz, mod&#232;le ergonomique" data-url="https://www.rihezastore.com/produit-souris-sans-fil-ergonomique.html" aria-label="Partager : Souris sans fil 2,4 GHz, mod&#232;le ergonomique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1019,7 +1033,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Souris%20sans%20fil%202%2C4%20GHz%2C%20mod%C3%A8le%20ergonomique%20%C3%A0%206%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="5000">
   <div class="produit-image">
     <a href="produit-souris-sans-fil-compacte.html" tabindex="-1" aria-hidden="true"><img src="images/produits/souris-sans-fil-compacte.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Souris%20sans%20fil%202%2C4%20GHz%2C%20mod%C3%A8le%20compact%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-souris-sans-fil-compacte.html" data-partager data-titre="Souris sans fil 2,4 GHz, mod&#232;le compact" data-url="https://www.rihezastore.com/produit-souris-sans-fil-compacte.html" aria-label="Partager : Souris sans fil 2,4 GHz, mod&#232;le compact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1032,7 +1046,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Souris%20sans%20fil%202%2C4%20GHz%2C%20mod%C3%A8le%20compact%20%C3%A0%205%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="9500">
   <div class="produit-image">
     <a href="produit-chargeur-ordinateur-65w.html" tabindex="-1" aria-hidden="true"><img src="images/produits/chargeur-ordinateur-65w.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Chargeur%20d'ordinateur%20Type-C%2065%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-chargeur-ordinateur-65w.html" data-partager data-titre="Chargeur d&#39;ordinateur Type-C 65 W" data-url="https://www.rihezastore.com/produit-chargeur-ordinateur-65w.html" aria-label="Partager : Chargeur d&#39;ordinateur Type-C 65 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1045,7 +1059,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Chargeur%20d'ordinateur%20Type-C%2065%20W%20%C3%A0%209%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="12000">
   <div class="produit-image">
     <a href="produit-chargeur-ordinateur-90w.html" tabindex="-1" aria-hidden="true"><img src="images/produits/chargeur-ordinateur-90w.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Chargeur%20d'ordinateur%20Type-C%2090%20W%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-chargeur-ordinateur-90w.html" data-partager data-titre="Chargeur d&#39;ordinateur Type-C 90 W" data-url="https://www.rihezastore.com/produit-chargeur-ordinateur-90w.html" aria-label="Partager : Chargeur d&#39;ordinateur Type-C 90 W"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1058,7 +1072,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Chargeur%20d'ordinateur%20Type-C%2090%20W%20%C3%A0%2012%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="informatique" data-prix="12000">
   <div class="produit-image">
     <a href="produit-support-ordinateur-ventilateur.html" tabindex="-1" aria-hidden="true"><img src="images/produits/support-ordinateur-ventilateur.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Support%20d'ordinateur%20rotatif%20avec%20ventilateur%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-support-ordinateur-ventilateur.html" data-partager data-titre="Support d&#39;ordinateur rotatif avec ventilateur" data-url="https://www.rihezastore.com/produit-support-ordinateur-ventilateur.html" aria-label="Partager : Support d&#39;ordinateur rotatif avec ventilateur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1084,7 +1098,7 @@
       <a class="lien-fleche" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20un%20produit%20dans%20la%20cat%C3%A9gorie%20Sacs%20%3A%20">Demander un autre produit</a>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="23000">
   <div class="produit-image">
     <a href="produit-sac-explorer-one.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-explorer-one.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Grand%20sac%20%C3%A0%20dos%20professionnel%20Explorer%20One%2017%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-explorer-one.html" data-partager data-titre="Grand sac &#224; dos professionnel Explorer One 17&quot;" data-url="https://www.rihezastore.com/produit-sac-explorer-one.html" aria-label="Partager : Grand sac &#224; dos professionnel Explorer One 17&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1097,7 +1111,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Grand%20sac%20%C3%A0%20dos%20professionnel%20Explorer%20One%2017%22%20%C3%A0%2023%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="25000">
   <div class="produit-image">
     <a href="produit-sac-metro-secure.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-metro-secure.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20professionnel%20Metro%20Secure%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-metro-secure.html" data-partager data-titre="Sac &#224; dos professionnel Metro Secure 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-metro-secure.html" aria-label="Partager : Sac &#224; dos professionnel Metro Secure 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1110,7 +1124,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20professionnel%20Metro%20Secure%2015%2C6%22%20%C3%A0%2025%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="33000">
   <div class="produit-image">
     <a href="produit-sac-ozuko.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-ozuko.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Grand%20sac%20%C3%A0%20dos%20Ozuko%20Tactique%20Business%2017%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-ozuko.html" data-partager data-titre="Grand sac &#224; dos Ozuko Tactique Business 17&quot;" data-url="https://www.rihezastore.com/produit-sac-ozuko.html" aria-label="Partager : Grand sac &#224; dos Ozuko Tactique Business 17&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1123,7 +1137,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Grand%20sac%20%C3%A0%20dos%20Ozuko%20Tactique%20Business%2017%22%20%C3%A0%2033%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="6500">
   <div class="produit-image">
     <a href="produit-portefeuille-baellerry.html" tabindex="-1" aria-hidden="true"><img src="images/produits/portefeuille-baellerry.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Portefeuille%20de%20poche%20pour%20hommes%20Baellerry%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-portefeuille-baellerry.html" data-partager data-titre="Portefeuille de poche pour hommes Baellerry" data-url="https://www.rihezastore.com/produit-portefeuille-baellerry.html" aria-label="Partager : Portefeuille de poche pour hommes Baellerry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1136,7 +1150,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Portefeuille%20de%20poche%20pour%20hommes%20Baellerry%20%C3%A0%206%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="8000">
   <div class="produit-image">
     <a href="produit-sac-bandouliere-impermeable.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-bandouliere-impermeable.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20bandouli%C3%A8re%20multifonctionnel%20imperm%C3%A9able%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-bandouliere-impermeable.html" data-partager data-titre="Sac bandouli&#232;re multifonctionnel imperm&#233;able" data-url="https://www.rihezastore.com/produit-sac-bandouliere-impermeable.html" aria-label="Partager : Sac bandouli&#232;re multifonctionnel imperm&#233;able"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1149,7 +1163,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20bandouli%C3%A8re%20multifonctionnel%20imperm%C3%A9able%20%C3%A0%208%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="7000">
   <div class="produit-image">
     <a href="produit-pochette-prestige-business.html" tabindex="-1" aria-hidden="true"><img src="images/produits/pochette-prestige-business.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20pochette%20imperm%C3%A9able%20Prestige%20Business%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-pochette-prestige-business.html" data-partager data-titre="Sac pochette imperm&#233;able Prestige Business" data-url="https://www.rihezastore.com/produit-pochette-prestige-business.html" aria-label="Partager : Sac pochette imperm&#233;able Prestige Business"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1162,7 +1176,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20pochette%20imperm%C3%A9able%20Prestige%20Business%20%C3%A0%207%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="12000">
   <div class="produit-image">
     <a href="produit-portefeuille-humerpaul-premium.html" tabindex="-1" aria-hidden="true"><img src="images/produits/portefeuille-humerpaul-premium.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Portefeuille%20Humerpaul%20RFID%20cuir%20v%C3%A9ritable%2C%20Premium%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-portefeuille-humerpaul-premium.html" data-partager data-titre="Portefeuille Humerpaul RFID cuir v&#233;ritable, Premium" data-url="https://www.rihezastore.com/produit-portefeuille-humerpaul-premium.html" aria-label="Partager : Portefeuille Humerpaul RFID cuir v&#233;ritable, Premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1175,7 +1189,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Portefeuille%20Humerpaul%20RFID%20cuir%20v%C3%A9ritable%2C%20Premium%20%C3%A0%2012%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="12000">
   <div class="produit-image">
     <a href="produit-portefeuille-humerpaul-prestige.html" tabindex="-1" aria-hidden="true"><img src="images/produits/portefeuille-humerpaul-prestige.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Portefeuille%20Humerpaul%20RFID%20cuir%20v%C3%A9ritable%2C%20Prestige%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-portefeuille-humerpaul-prestige.html" data-partager data-titre="Portefeuille Humerpaul RFID cuir v&#233;ritable, Prestige" data-url="https://www.rihezastore.com/produit-portefeuille-humerpaul-prestige.html" aria-label="Partager : Portefeuille Humerpaul RFID cuir v&#233;ritable, Prestige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1188,7 +1202,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Portefeuille%20Humerpaul%20RFID%20cuir%20v%C3%A9ritable%2C%20Prestige%20%C3%A0%2012%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="19900">
   <div class="produit-image">
     <a href="produit-sac-livraison-isotherme.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-livraison-isotherme.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20isotherme%20de%20livraison%20professionnelle%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-livraison-isotherme.html" data-partager data-titre="Sac &#224; dos isotherme de livraison professionnelle" data-url="https://www.rihezastore.com/produit-sac-livraison-isotherme.html" aria-label="Partager : Sac &#224; dos isotherme de livraison professionnelle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1201,7 +1215,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20isotherme%20de%20livraison%20professionnelle%20%C3%A0%2019%20900%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="35000">
   <div class="produit-image">
     <a href="produit-sac-ozuko-voyageur-x-pro.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-ozuko-voyageur-x-pro.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Grand%20sac%20%C3%A0%20dos%20Ozuko%20Voyageur%20X-Pro%2017%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-ozuko-voyageur-x-pro.html" data-partager data-titre="Grand sac &#224; dos Ozuko Voyageur X-Pro 17&quot;" data-url="https://www.rihezastore.com/produit-sac-ozuko-voyageur-x-pro.html" aria-label="Partager : Grand sac &#224; dos Ozuko Voyageur X-Pro 17&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1214,7 +1228,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Grand%20sac%20%C3%A0%20dos%20Ozuko%20Voyageur%20X-Pro%2017%22%20%C3%A0%2035%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="32000">
   <div class="produit-image">
     <a href="produit-sac-ozuko-business-pro.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-ozuko-business-pro.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Grand%20sac%20%C3%A0%20dos%20antivol%20Ozuko%20Business%20Pro%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-ozuko-business-pro.html" data-partager data-titre="Grand sac &#224; dos antivol Ozuko Business Pro 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-ozuko-business-pro.html" aria-label="Partager : Grand sac &#224; dos antivol Ozuko Business Pro 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1227,7 +1241,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Grand%20sac%20%C3%A0%20dos%20antivol%20Ozuko%20Business%20Pro%2015%2C6%22%20%C3%A0%2032%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="27000">
   <div class="produit-image">
     <a href="produit-sac-voyage-ozuko.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-voyage-ozuko.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20de%20voyage%20antivol%20Ozuko%20Travel%20Bag%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-voyage-ozuko.html" data-partager data-titre="Sac de voyage antivol Ozuko Travel Bag" data-url="https://www.rihezastore.com/produit-sac-voyage-ozuko.html" aria-label="Partager : Sac de voyage antivol Ozuko Travel Bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1240,7 +1254,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20de%20voyage%20antivol%20Ozuko%20Travel%20Bag%20%C3%A0%2027%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="14000">
   <div class="produit-image">
     <a href="produit-sac-urban-rolltop.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-urban-rolltop.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20imperm%C3%A9able%20Urban%20Rolltop%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-urban-rolltop.html" data-partager data-titre="Sac &#224; dos imperm&#233;able Urban Rolltop 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-urban-rolltop.html" aria-label="Partager : Sac &#224; dos imperm&#233;able Urban Rolltop 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1253,7 +1267,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20imperm%C3%A9able%20Urban%20Rolltop%2015%2C6%22%20%C3%A0%2014%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="14000">
   <div class="produit-image">
     <a href="produit-sac-urban-backpack.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-urban-backpack.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20imperm%C3%A9able%20Urban%20Backpack%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-urban-backpack.html" data-partager data-titre="Sac &#224; dos imperm&#233;able Urban Backpack 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-urban-backpack.html" aria-label="Partager : Sac &#224; dos imperm&#233;able Urban Backpack 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1266,7 +1280,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20imperm%C3%A9able%20Urban%20Backpack%2015%2C6%22%20%C3%A0%2014%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="17000">
   <div class="produit-image">
     <a href="produit-sac-metro-reflex.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-metro-reflex.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20extensible%20Metro%20Reflex%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-metro-reflex.html" data-partager data-titre="Sac &#224; dos extensible Metro Reflex 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-metro-reflex.html" aria-label="Partager : Sac &#224; dos extensible Metro Reflex 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1279,7 +1293,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20extensible%20Metro%20Reflex%2015%2C6%22%20%C3%A0%2017%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="19000">
   <div class="produit-image">
     <a href="produit-sac-zen-17.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-zen-17.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20extensible%20Zen%2017%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-zen-17.html" data-partager data-titre="Sac &#224; dos extensible Zen 17&quot;" data-url="https://www.rihezastore.com/produit-sac-zen-17.html" aria-label="Partager : Sac &#224; dos extensible Zen 17&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1292,7 +1306,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20extensible%20Zen%2017%22%20%C3%A0%2019%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="16900">
   <div class="produit-image">
     <a href="produit-sac-partenaire-prestige.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-partenaire-prestige.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20extensible%20Partenaire%20Prestige%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-partenaire-prestige.html" data-partager data-titre="Sac &#224; dos extensible Partenaire Prestige 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-partenaire-prestige.html" aria-label="Partager : Sac &#224; dos extensible Partenaire Prestige 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1305,7 +1319,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20extensible%20Partenaire%20Prestige%2015%2C6%22%20%C3%A0%2016%20900%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="18500">
   <div class="produit-image">
     <a href="produit-sac-chic-aventureux.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-chic-aventureux.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20dos%20extensible%20Chic%20Aventureux%2015%2C6%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-chic-aventureux.html" data-partager data-titre="Sac &#224; dos extensible Chic Aventureux 15,6&quot;" data-url="https://www.rihezastore.com/produit-sac-chic-aventureux.html" aria-label="Partager : Sac &#224; dos extensible Chic Aventureux 15,6&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1318,7 +1332,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20dos%20extensible%20Chic%20Aventureux%2015%2C6%22%20%C3%A0%2018%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="14000">
   <div class="produit-image">
     <a href="produit-sac-office-class-14.html" tabindex="-1" aria-hidden="true"><img src="images/produits/sac-office-class-14.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Sac%20%C3%A0%20main%20d'ordinateur%20Office%20Class%2014%22%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-sac-office-class-14.html" data-partager data-titre="Sac &#224; main d&#39;ordinateur Office Class 14&quot;" data-url="https://www.rihezastore.com/produit-sac-office-class-14.html" aria-label="Partager : Sac &#224; main d&#39;ordinateur Office Class 14&quot;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1331,7 +1345,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Sac%20%C3%A0%20main%20d'ordinateur%20Office%20Class%2014%22%20%C3%A0%2014%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="7000">
   <div class="produit-image">
     <a href="produit-pese-bagage-electronique-50kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/pese-bagage-electronique-50kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1345,7 +1359,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Mini%20p%C3%A8se-bagage%20%C3%A9lectronique%2050%20kg%20%C3%A0%207%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sacs" data-prix="9500">
   <div class="produit-image">
     <a href="produit-pese-bagage-ruban-mesure-50kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/pese-bagage-ruban-mesure-50kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1372,7 +1386,7 @@
       <a class="lien-fleche" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20un%20produit%20dans%20la%20cat%C3%A9gorie%20Sport%20%3A%20">Demander un autre produit</a>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="75000">
   <div class="produit-image">
     <a href="produit-twist-shape.html" tabindex="-1" aria-hidden="true"><img src="images/produits/twist-shape.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Machine%20de%20musculation%20fitness%20Twist%20%26%20Shape%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-twist-shape.html" data-partager data-titre="Machine de musculation fitness Twist &amp; Shape" data-url="https://www.rihezastore.com/produit-twist-shape.html" aria-label="Partager : Machine de musculation fitness Twist &amp; Shape"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1385,7 +1399,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Machine%20de%20musculation%20fitness%20Twist%20%26%20Shape%20%C3%A0%2075%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="45000">
   <div class="produit-image">
     <a href="produit-mini-trampoline.html" tabindex="-1" aria-hidden="true"><img src="images/produits/mini-trampoline.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Mini%20trampoline%20fitness%20pliable%2040%20pouces%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-mini-trampoline.html" data-partager data-titre="Mini trampoline fitness pliable 40 pouces" data-url="https://www.rihezastore.com/produit-mini-trampoline.html" aria-label="Partager : Mini trampoline fitness pliable 40 pouces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1398,7 +1412,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Mini%20trampoline%20fitness%20pliable%2040%20pouces%20%C3%A0%2045%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="8900">
   <div class="produit-image">
     <a href="produit-ballon-gym-75cm.html" tabindex="-1" aria-hidden="true"><img src="images/produits/ballon-gym-75cm.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Ballon%20de%20gym%2075%20cm%20avec%20pompe%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-ballon-gym-75cm.html" data-partager data-titre="Ballon de gym 75 cm avec pompe" data-url="https://www.rihezastore.com/produit-ballon-gym-75cm.html" aria-label="Partager : Ballon de gym 75 cm avec pompe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1411,7 +1425,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Ballon%20de%20gym%2075%20cm%20avec%20pompe%20%C3%A0%208%20900%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="40000">
   <div class="produit-image">
     <a href="produit-halteres-15kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/halteres-15kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Kit%20d'halt%C3%A8res%20de%20musculation%2015%20kg%2C%20ajustables%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-halteres-15kg.html" data-partager data-titre="Kit d&#39;halt&#232;res de musculation 15 kg, ajustables" data-url="https://www.rihezastore.com/produit-halteres-15kg.html" aria-label="Partager : Kit d&#39;halt&#232;res de musculation 15 kg, ajustables"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1424,7 +1438,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Kit%20d'halt%C3%A8res%20de%20musculation%2015%20kg%2C%20ajustables%20%C3%A0%2040%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="55000">
   <div class="produit-image">
     <a href="produit-halteres-30kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/halteres-30kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Kit%20d'halt%C3%A8res%20de%20musculation%2030%20kg%2C%20ajustables%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-halteres-30kg.html" data-partager data-titre="Kit d&#39;halt&#232;res de musculation 30 kg, ajustables" data-url="https://www.rihezastore.com/produit-halteres-30kg.html" aria-label="Partager : Kit d&#39;halt&#232;res de musculation 30 kg, ajustables"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1437,7 +1451,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Kit%20d'halt%C3%A8res%20de%20musculation%2030%20kg%2C%20ajustables%20%C3%A0%2055%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="84000">
   <div class="produit-image">
     <a href="produit-halteres-50kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/halteres-50kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Kit%20d'halt%C3%A8res%20de%20musculation%2050%20kg%2C%20ajustables%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-halteres-50kg.html" data-partager data-titre="Kit d&#39;halt&#232;res de musculation 50 kg, ajustables" data-url="https://www.rihezastore.com/produit-halteres-50kg.html" aria-label="Partager : Kit d&#39;halt&#232;res de musculation 50 kg, ajustables"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1450,7 +1464,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Kit%20d'halt%C3%A8res%20de%20musculation%2050%20kg%2C%20ajustables%20%C3%A0%2084%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="19000">
   <div class="produit-image">
     <a href="produit-halteres-2x5kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/halteres-2x5kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Kit%20de%202%20halt%C3%A8res%202%20x%205%20kg%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-halteres-2x5kg.html" data-partager data-titre="Kit de 2 halt&#232;res 2 x 5 kg" data-url="https://www.rihezastore.com/produit-halteres-2x5kg.html" aria-label="Partager : Kit de 2 halt&#232;res 2 x 5 kg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1463,7 +1477,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Kit%20de%202%20halt%C3%A8res%202%20x%205%20kg%20%C3%A0%2019%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="14000">
   <div class="produit-image">
     <a href="produit-roue-abdominale.html" tabindex="-1" aria-hidden="true"><img src="images/produits/roue-abdominale.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Roue%20abdominale%20avec%20rebond%20automatique%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-roue-abdominale.html" data-partager data-titre="Roue abdominale avec rebond automatique" data-url="https://www.rihezastore.com/produit-roue-abdominale.html" aria-label="Partager : Roue abdominale avec rebond automatique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1476,7 +1490,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Roue%20abdominale%20avec%20rebond%20automatique%20%C3%A0%2014%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="8500">
   <div class="produit-image">
     <a href="produit-barre-power-twister.html" tabindex="-1" aria-hidden="true"><img src="images/produits/barre-power-twister.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Barre%20%C3%A0%20ressort%20Power%20Twister%2030-50%20kg%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-barre-power-twister.html" data-partager data-titre="Barre &#224; ressort Power Twister 30-50 kg" data-url="https://www.rihezastore.com/produit-barre-power-twister.html" aria-label="Partager : Barre &#224; ressort Power Twister 30-50 kg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1489,7 +1503,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Barre%20%C3%A0%20ressort%20Power%20Twister%2030-50%20kg%20%C3%A0%208%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="28000">
   <div class="produit-image">
     <a href="produit-mini-stepper.html" tabindex="-1" aria-hidden="true"><img src="images/produits/mini-stepper.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Mini%20stepper%20avec%20cordes%20de%20r%C3%A9sistance%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-mini-stepper.html" data-partager data-titre="Mini stepper avec cordes de r&#233;sistance" data-url="https://www.rihezastore.com/produit-mini-stepper.html" aria-label="Partager : Mini stepper avec cordes de r&#233;sistance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1502,7 +1516,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Mini%20stepper%20avec%20cordes%20de%20r%C3%A9sistance%20%C3%A0%2028%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="10000">
   <div class="produit-image">
     <a href="produit-tapis-de-gym.html" tabindex="-1" aria-hidden="true"><img src="images/produits/tapis-de-gym.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Tapis%20de%20gym%20antid%C3%A9rapant%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-tapis-de-gym.html" data-partager data-titre="Tapis de gym antid&#233;rapant" data-url="https://www.rihezastore.com/produit-tapis-de-gym.html" aria-label="Partager : Tapis de gym antid&#233;rapant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1515,7 +1529,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Tapis%20de%20gym%20antid%C3%A9rapant%20%C3%A0%2010%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="sport" data-prix="45000">
   <div class="produit-image">
     <a href="produit-mini-velo-reeducation.html" tabindex="-1" aria-hidden="true"><img src="images/produits/mini-velo-reeducation.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Mini%20v%C3%A9lo%20de%20relaxation%2C%20r%C3%A9%C3%A9ducateur%20%C3%A9lectrique%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-mini-velo-reeducation.html" data-partager data-titre="Mini v&#233;lo de relaxation, r&#233;&#233;ducateur &#233;lectrique" data-url="https://www.rihezastore.com/produit-mini-velo-reeducation.html" aria-label="Partager : Mini v&#233;lo de relaxation, r&#233;&#233;ducateur &#233;lectrique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1541,7 +1555,7 @@
       <a class="lien-fleche" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20cherche%20un%20produit%20dans%20la%20cat%C3%A9gorie%20Divers%20%3A%20">Demander un autre produit</a>
     </div>
     <div class="produits produits-4">
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="18000">
   <div class="produit-image">
     <a href="produit-jouet-dj-mixer.html" tabindex="-1" aria-hidden="true"><img src="images/produits/jouet-dj-mixer.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Jouet%20DJ%20Mixer%20pour%20enfants%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-jouet-dj-mixer.html" data-partager data-titre="Jouet DJ Mixer pour enfants" data-url="https://www.rihezastore.com/produit-jouet-dj-mixer.html" aria-label="Partager : Jouet DJ Mixer pour enfants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1554,7 +1568,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Jouet%20DJ%20Mixer%20pour%20enfants%20%C3%A0%2018%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="10000">
   <div class="produit-image">
     <a href="produit-jeu-space-cat-balance.html" tabindex="-1" aria-hidden="true"><img src="images/produits/jeu-space-cat-balance.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Jeu%20de%20math%C3%A9matiques%20d'%C3%A9quilibre%20Space%20Cat%20Balance%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-jeu-space-cat-balance.html" data-partager data-titre="Jeu de math&#233;matiques d&#39;&#233;quilibre Space Cat Balance" data-url="https://www.rihezastore.com/produit-jeu-space-cat-balance.html" aria-label="Partager : Jeu de math&#233;matiques d&#39;&#233;quilibre Space Cat Balance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1567,7 +1581,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Jeu%20de%20math%C3%A9matiques%20d'%C3%A9quilibre%20Space%20Cat%20Balance%20%C3%A0%2010%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="22500">
   <div class="produit-image">
     <a href="produit-aspirateur-souffleur-3en1.html" tabindex="-1" aria-hidden="true"><img src="images/produits/aspirateur-souffleur-3en1.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Aspirateur%20souffleur%203%20en%201%20sans%20fil%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-aspirateur-souffleur-3en1.html" data-partager data-titre="Aspirateur souffleur 3 en 1 sans fil" data-url="https://www.rihezastore.com/produit-aspirateur-souffleur-3en1.html" aria-label="Partager : Aspirateur souffleur 3 en 1 sans fil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1580,7 +1594,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Aspirateur%20souffleur%203%20en%201%20sans%20fil%20%C3%A0%2022%20500%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="10000">
   <div class="produit-image">
     <a href="produit-lampe-torche-rechargeable.html" tabindex="-1" aria-hidden="true"><img src="images/produits/lampe-torche-rechargeable.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <a class="produit-partage" href="https://wa.me/?text=Lampe%20torche%20de%20poche%20rechargeable%20et%20zoomable%20%3A%20https%3A%2F%2Fwww.rihezastore.com%2Fproduit-lampe-torche-rechargeable.html" data-partager data-titre="Lampe torche de poche rechargeable et zoomable" data-url="https://www.rihezastore.com/produit-lampe-torche-rechargeable.html" aria-label="Partager : Lampe torche de poche rechargeable et zoomable"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
@@ -1593,7 +1607,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Lampe%20torche%20de%20poche%20rechargeable%20et%20zoomable%20%C3%A0%2010%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="20000">
   <div class="produit-image">
     <a href="produit-balance-electronique-40kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/balance-electronique-40kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1607,7 +1621,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Balance%20%C3%A9lectronique%2040%20kg%20rechargeable%20%C3%A0%2020%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="13000">
   <div class="produit-image">
     <a href="produit-balance-mecanique-30kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/balance-mecanique-30kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1621,7 +1635,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Balance%20m%C3%A9canique%2030%20kg%20%C3%A0%20plateau%20amovible%20%C3%A0%2013%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="45000">
   <div class="produit-image">
     <a href="produit-balance-electronique-300kg.html" tabindex="-1" aria-hidden="true"><img src="images/produits/balance-electronique-300kg.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1635,7 +1649,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Balance%20%C3%A9lectronique%20300%20kg%20rechargeable%20%C3%A0%2045%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="115000">
   <div class="produit-image">
     <a href="produit-table-tv-table-basse.html" tabindex="-1" aria-hidden="true"><img src="images/produits/table-tv-table-basse.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1649,7 +1663,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Table%20TV%20%2B%20table%20basse%2C%20bois%20lamin%C3%A9%20et%20plateau%20vitr%C3%A9%20%C3%A0%20115%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="39000">
   <div class="produit-image">
     <a href="produit-barbecue-charbon-demontable.html" tabindex="-1" aria-hidden="true"><img src="images/produits/barbecue-charbon-demontable.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1663,7 +1677,7 @@
     <a class="btn btn-achat" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20%3A%20Barbecue%20au%20charbon%20d%C3%A9montable%20en%20inox%20%C3%A0%2039%20000%20FCFA.%20Est-il%20disponible%20%3F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>Commander</a>
   </div>
 </article>
-<article class="produit apparait">
+<article class="produit apparait" data-cat="divers" data-prix="8000">
   <div class="produit-image">
     <a href="produit-ustensiles-cuisine-6-pieces.html" tabindex="-1" aria-hidden="true"><img src="images/produits/ustensiles-cuisine-6-pieces.jpg" alt="" width="800" height="800" loading="lazy"></a>
     <span class="badge badge-nouveau">Nouveau</span>
@@ -1745,7 +1759,7 @@
   <button type="button" class="installer-fermer" aria-label="Fermer">×</button>
 </div>
 <a class="flottant" href="https://wa.me/22892680477?text=Bonjour%20Riheza%2C%20je%20souhaite%20passer%20une%20commande." aria-label="Écrire à Riheza sur WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg></a>
-<script src="menu.js?v=a21b4801"></script>
+<script src="menu.js?v=b98f6305"></script>
 
 </body>
 </html>

@@ -83,6 +83,24 @@ p { margin: 0; }
 .sommaire a.sommaire-nouveau:hover { background: var(--orange); color: var(--blanc); border-color: var(--orange); }
 .rayon-nouveautes { scroll-margin-top: calc(var(--entete-h) + 68px); }
 
+/* Filtres de la page Produits : prix (liste) et rayon (puces de la bande) */
+.choix { max-width: 300px; margin-top: var(--e-4); }
+.choix-champ { display: flex; flex-direction: column; gap: var(--e-1); font-size: 13px; font-weight: 700; color: var(--texte-doux); letter-spacing: .04em; text-transform: uppercase; }
+.choix-champ select {
+  min-height: 48px; width: 100%; padding: 0 40px 0 var(--e-4);
+  border: 2px solid var(--bleu-clair); border-radius: var(--rayon-pilule); background-color: var(--blanc);
+  font-family: var(--police-texte); font-size: 16px; font-weight: 500; color: var(--bleu); text-transform: none; letter-spacing: 0;
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--bleu) 50%), linear-gradient(135deg, var(--bleu) 50%, transparent 50%);
+  background-position: right 20px center, right 15px center; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.choix-champ select:focus { outline: none; border-color: var(--orange); }
+.choix-champ select.actif { border-color: var(--bleu); background-color: var(--bleu-voile); }
+.sans-js .choix { display: none; }
+.filtres-effacer { margin-left: var(--e-2); padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--orange-fonce); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.sommaire a[aria-current="true"] { background: var(--bleu); color: var(--blanc); border-color: var(--bleu); }
+.sommaire a.sommaire-nouveau[aria-current="true"] { background: var(--orange); color: var(--blanc); border-color: var(--orange); }
+
 /* En-tête */
 .entete {
   position: sticky;
