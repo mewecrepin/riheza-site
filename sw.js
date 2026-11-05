@@ -1,8 +1,8 @@
 // Riheza : mise en mémoire pour l'application installée.
 // Pages : réseau d'abord (prix toujours à jour), mémoire si la connexion coupe.
 // Images, styles, polices : mémoire d'abord (ouverture rapide), mises à jour en arrière-plan.
-var VERSION = 'riheza-v9';
-var BASE = ['index.html', 'produits.html', 'contact.html', 'style.css', 'tokens.css', 'menu.js',
+var VERSION = 'riheza-v10';
+var BASE = ['./', 'produits', 'contact', 'style.css', 'tokens.css', 'menu.js',
   'images/riheza-logo.png', 'images/riheza-logo-blanc.png', 'images/favicon.png', 'images/app/icone-192.png'];
 
 self.addEventListener('install', function (e) {
@@ -25,10 +25,11 @@ self.addEventListener('fetch', function (e) {
 
   if (req.mode === 'navigate' || req.destination === 'document') {
     e.respondWith(fetch(req).then(function (r) {
-      var copie = r.clone(); caches.open(VERSION).then(function (c) { c.put(req, copie); });
+      // an old .html link answers with a redirect: only real pages go in memory
+      if (r.ok) { var copie = r.clone(); caches.open(VERSION).then(function (c) { c.put(req, copie); }); }
       return r;
     }).catch(function () {
-      return caches.match(req, { ignoreSearch: true }).then(function (r) { return r || caches.match('index.html'); });
+      return caches.match(req, { ignoreSearch: true }).then(function (r) { return r || caches.match('./'); });
     }));
     return;
   }
