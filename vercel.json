@@ -1,3 +1,9 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/produit-:nom", "destination": "/:nom", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/:rayon(electromenager|electronique|informatique|sacs|sport|divers)", "destination": "/produits" }
+  ]
 }
