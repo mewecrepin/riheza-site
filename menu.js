@@ -106,9 +106,11 @@
         b.addEventListener('click', function () { champ.value = ''; selPrix.value = ''; cat = ''; poserPuces(); filtrer(); });
         statut.appendChild(b);
       }
-      var p = new URLSearchParams();
-      if (brut) p.set('q', brut); if (cat) p.set('cat', cat); if (selPrix.value) p.set('prix', selPrix.value);
-      if (history.replaceState) history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+      // Address shown: rihezastore.com/<rayon> for a section, /produits otherwise
+      var p = new URLSearchParams(), chemin = '/produits';
+      if (brut) p.set('q', brut); if (selPrix.value) p.set('prix', selPrix.value);
+      if (cat && cat !== 'nouveautes') chemin = '/' + cat; else if (cat) p.set('cat', cat);
+      if (history.replaceState) history.replaceState(null, '', chemin + (p.toString() ? '?' + p.toString() : ''));
     };
     champ.addEventListener('input', filtrer);
     form.addEventListener('submit', function (ev) { ev.preventDefault(); champ.blur(); filtrer(); });
@@ -123,10 +125,11 @@
         if (window.scrollY > sommaire.offsetTop) window.scrollTo({ top: sommaire.offsetTop, behavior: 'smooth' });
       });
     });
-    // Point de départ : ?q=, ?cat=, ?prix= ou un lien #rayon venu de l'accueil
+    // Point de départ : ?q=, ?cat=, ?prix=, une adresse /rayon ou un ancien lien #rayon
     var params = new URLSearchParams(location.search), depart = params.get('q');
     var dieze = location.hash.slice(1), ids = Array.prototype.map.call(puces, function (p) { return p.getAttribute('data-cat'); });
-    if (ids.indexOf(params.get('cat')) > 0) cat = params.get('cat'); else if (ids.indexOf(dieze) > 0) cat = dieze;
+    var rayon = location.pathname.replace(/^\/+|\/+$/g, '');
+    if (ids.indexOf(params.get('cat')) > 0) cat = params.get('cat'); else if (ids.indexOf(rayon) > 0) cat = rayon; else if (ids.indexOf(dieze) > 0) cat = dieze;
     if (params.get('prix')) { selPrix.value = params.get('prix'); if (selPrix.selectedIndex < 0) selPrix.value = ''; }
     if (depart) champ.value = depart;
     poserPuces();
