@@ -297,6 +297,11 @@ p { margin: 0; }
 .rayon + .rayon { border-top: 1px solid var(--bordure); }
 .rayon-entete { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--e-2) var(--e-6); margin-bottom: var(--e-7); }
 .rayon-entete p { color: var(--texte-doux); max-width: 34em; }
+.rayon-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-3) var(--e-6); }
+.rayon-partage { display: inline-flex; align-items: center; gap: var(--e-2); min-height: 44px; font-weight: 700; color: var(--bleu); text-decoration: none; }
+.rayon-partage:hover span { text-decoration: underline; }
+.rayon-partage svg { width: 20px; height: 20px; flex: none; }
+.rayon-partage.btn-partage-ok { color: var(--vert-whatsapp); }
 .rayon-vide { padding: var(--e-7); background: var(--gris-fond); display: flex; flex-direction: column; gap: var(--e-4); align-items: flex-start; }
 .rayon-vide p { color: var(--texte-doux); }
 
