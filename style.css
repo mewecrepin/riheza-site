@@ -382,6 +382,10 @@ p { margin: 0; }
 .pied ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--e-2); }
 .pied a { color: var(--blanc); text-decoration: none; }
 .pied a:hover { color: var(--orange-clair); text-decoration: underline; }
+/* « Installer l'application » : a button (it opens the install banner), styled like the footer links */
+.pied-installer { background: none; border: 0; padding: 0; margin: 0; font: inherit; color: var(--blanc); text-align: left; cursor: pointer; }
+.pied-installer:hover { color: var(--orange-clair); text-decoration: underline; }
+.pied-installer[hidden] { display: none; }
 .pied-intro p { margin-top: var(--e-4); max-width: 22em; line-height: 1.55; }
 .pied-bas { border-top: 1px solid rgba(201, 211, 230, .2); grid-column: 1 / -1; padding-top: var(--e-5); font-size: 13px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--e-2); }
 @media (min-width: 900px) { .pied .conteneur { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
