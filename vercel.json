@@ -1,5 +1,6 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     { "source": "/produit-:nom", "destination": "/:nom", "permanent": true },
     { "source": "/shop/:chemin*", "destination": "/produits", "permanent": true },
