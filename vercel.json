@@ -1,7 +1,14 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/produit-:nom", "destination": "/:nom", "permanent": true }
+    { "source": "/produit-:nom", "destination": "/:nom", "permanent": true },
+    { "source": "/shop/:chemin*", "destination": "/produits", "permanent": true },
+    { "source": "/boutique/:chemin*", "destination": "/produits", "permanent": true },
+    { "source": "/product/:chemin*", "destination": "/produits", "permanent": true },
+    { "source": "/produit/:chemin*", "destination": "/produits", "permanent": true },
+    { "source": "/product-category/:chemin*", "destination": "/produits", "permanent": true },
+    { "source": "/categorie-produit/:chemin*", "destination": "/produits", "permanent": true },
+    { "source": "/:page(cart|checkout|my-account|panier|commande|mon-compte)/:chemin*", "destination": "/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/:rayon(electromenager|electronique|informatique|sacs|sport|divers)", "destination": "/produits" }
