@@ -12,6 +12,6 @@
     { "source": "/:page(cart|checkout|my-account|panier|commande|mon-compte)/:chemin*", "destination": "/", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/:rayon(electromenager|electronique|informatique|sacs|sport|divers)", "destination": "/produits" }
+    { "source": "/:rayon(electromenager|electronique|informatique|sacs|sport|jouets|divers)", "destination": "/produits" }
   ]
 }

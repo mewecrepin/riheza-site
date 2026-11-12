@@ -217,6 +217,9 @@ p { margin: 0; }
 .categorie:hover h3, .categorie:hover span { color: var(--blanc); }
 .categorie:hover svg { color: var(--orange-clair); }
 @media (min-width: 700px) { .categories { grid-template-columns: repeat(3, 1fr); gap: var(--e-4); } .categorie { padding: var(--e-6); min-height: 200px; } .categorie h3 { font-size: var(--t-h3); } }
+/* A tile left alone on the last row takes the full width (7 sections) */
+@media (max-width: 699px) { .categorie:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (min-width: 700px) { .categorie:last-child:nth-child(3n+1) { grid-column: 1 / -1; } }
 
 /* Cartes produits */
 .produits { display: grid; grid-template-columns: 1fr; gap: var(--e-4); }
