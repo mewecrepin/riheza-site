@@ -61,7 +61,8 @@
     var synonymes = { frigo: 'refrigerateur', congelo: 'congelateur', tele: 'tv', television: 'tv', telephone: 'samsung', portable: 'ordinateur', ecouteur: 'casque', micro: 'micro', ventilo: 'ventilateur', gaz: 'cuisiniere' };
     var lire = function (zone) {
       return Array.prototype.map.call(zone.querySelectorAll('.produit'), function (c) {
-        return { el: c, texte: norm(c.textContent), cat: c.getAttribute('data-cat'), prix: +c.getAttribute('data-prix') };
+        var lien = c.querySelector('.produit-lien');
+        return { el: c, texte: norm(c.textContent), cat: c.getAttribute('data-cat'), prix: +c.getAttribute('data-prix'), page: lien ? lien.getAttribute('href') : '' };
       });
     };
     var cartes = [];
@@ -90,7 +91,9 @@
         rayons.forEach(function (r) { r.hidden = true; });
         if (nouv) nouv.hidden = n === 0;
       } else {
-        cartes.forEach(function (c) { var ok = (!cat || c.cat === cat) && garder(c); c.el.hidden = !ok; if (ok) n++; });
+        // a product listed in two sections is counted once
+        var vus = {};
+        cartes.forEach(function (c) { var ok = (!cat || c.cat === cat) && garder(c); c.el.hidden = !ok; if (ok && !vus[c.page]) { vus[c.page] = 1; n++; } });
         cartesNouv.forEach(function (c) { c.el.hidden = false; });
         rayons.forEach(function (r) { r.hidden = !r.querySelector('.produit:not([hidden])'); });
         if (nouv) nouv.hidden = !!(q || cat || selPrix.value);
