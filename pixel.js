@@ -13,7 +13,9 @@
   var produit = null;
   var bloc = document.querySelector('script[type="application/ld+json"]');
   if (bloc) { try { var d = JSON.parse(bloc.textContent); if (d['@type'] === 'Product') produit = d; } catch (e) {} }
-  if (produit) fbq('track', 'ViewContent', { content_name: produit.name, content_type: 'product', value: produit.offers.price, currency: 'XOF' });
+  // content_ids = page name, the same id as in catalogue-facebook.csv (catalogue ads)
+  var idDe = function (url) { return (url || '').replace(/^https?:\/\/[^\/]+\//, '').replace(/[?#].*$/, '').replace(/\.html$/, ''); };
+  if (produit) fbq('track', 'ViewContent', { content_ids: [idDe(produit.url)], content_name: produit.name, content_type: 'product', value: produit.offers.price, currency: 'XOF' });
 
   // Click towards Riheza's WhatsApp (Commander, contact...); the share links (wa.me/?text=) are not counted
   document.addEventListener('click', function (e) {
@@ -22,6 +24,10 @@
     var carte = a.closest('.produit');
     var lien = carte ? carte.querySelector('.produit-lien') : null;
     var nom = lien ? lien.textContent.trim() : (produit ? produit.name : '');
-    fbq('track', 'Contact', nom ? { content_name: nom } : {});
+    var id = lien ? idDe(lien.getAttribute('href')) : (produit ? idDe(produit.url) : '');
+    var infos = {};
+    if (nom) infos.content_name = nom;
+    if (id) { infos.content_ids = [id]; infos.content_type = 'product'; }
+    fbq('track', 'Contact', infos);
   });
 })();
