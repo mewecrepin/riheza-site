@@ -62,13 +62,16 @@
     var lire = function (zone) {
       return Array.prototype.map.call(zone.querySelectorAll('.produit'), function (c) {
         var lien = c.querySelector('.produit-lien');
-        return { el: c, texte: norm(c.textContent), cat: c.getAttribute('data-cat'), prix: +c.getAttribute('data-prix'), page: lien ? lien.getAttribute('href') : '' };
+        return { el: c, texte: norm(c.textContent), cat: c.getAttribute('data-cat'), prix: +c.getAttribute('data-prix'), page: lien ? lien.getAttribute('href') : '', groupes: (c.getAttribute('data-groupes') || '').split(' ') };
       });
     };
     var cartes = [];
     rayons.forEach(function (r) { cartes = cartes.concat(lire(r)); });
     var cartesNouv = nouv ? lire(nouv) : [];
     var cat = '';
+    // Brand and type pages: rihezastore.com/hisense, /refrigerateurs... (or ?groupe=) show only that group
+    var groupe = '', noms = {};
+    try { noms = JSON.parse(document.getElementById('groupes').textContent); } catch (e) {}
     var poserPuces = function () {
       puces.forEach(function (p) {
         var actif = p.getAttribute('data-cat') === cat;
@@ -79,10 +82,11 @@
     var filtrer = function () {
       var brut = champ.value.trim(), q = norm(brut);
       effacer.hidden = !q;
-      var mots = q.split(/\s+/).filter(Boolean).map(function (m) { return m.length > 3 ? m.replace(/s$/, '') : m; });
+      // punctuation stuck to a word ("hisense." pasted from a message) is ignored
+      var mots = q.split(/\s+/).map(function (m) { return m.replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, ''); }).filter(Boolean).map(function (m) { return m.length > 3 ? m.replace(/s$/, '') : m; });
       var bornes = selPrix.value.split('-'), min = +bornes[0] || 0, max = bornes[1] ? +bornes[1] : Infinity;
       var garder = function (c) {
-        return c.prix >= min && c.prix < max && mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); });
+        return (!groupe || c.groupes.indexOf(groupe) > -1) && c.prix >= min && c.prix < max && mots.every(function (m) { return c.texte.indexOf(m) > -1 || (synonymes[m] && c.texte.indexOf(synonymes[m]) > -1); });
       };
       var n = 0;
       if (cat === 'nouveautes') {
@@ -96,23 +100,25 @@
         cartes.forEach(function (c) { var ok = (!cat || c.cat === cat) && garder(c); c.el.hidden = !ok; if (ok && !vus[c.page]) { vus[c.page] = 1; n++; } });
         cartesNouv.forEach(function (c) { c.el.hidden = false; });
         rayons.forEach(function (r) { r.hidden = !r.querySelector('.produit:not([hidden])'); });
-        if (nouv) nouv.hidden = !!(q || cat || selPrix.value);
+        if (nouv) nouv.hidden = !!(q || cat || selPrix.value || groupe);
       }
-      var filtre = !!(q || cat || selPrix.value);
+      var filtre = !!(q || cat || selPrix.value || groupe);
+      var quoi = groupe ? ' : ' + noms[groupe] : '';
       if (bandeau) bandeau.hidden = filtre && n === 0;
       vide.hidden = !(filtre && n === 0);
       if (waVide) waVide.setAttribute('href', waBase + encodeURIComponent(brut));
       selPrix.classList.toggle('actif', !!selPrix.value);
-      statut.textContent = !filtre ? '' : n === 0 ? 'Aucun produit trouvé' + (q ? ' pour « ' + brut + ' »' : ' avec ces filtres') + '.' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + (q ? ' pour « ' + brut + ' »' : '') + '.';
+      statut.textContent = !filtre ? '' : n === 0 ? 'Aucun produit trouvé' + quoi + (q ? ' pour « ' + brut + ' »' : ' avec ces filtres') + '.' : n + (n > 1 ? ' produits trouvés' : ' produit trouvé') + quoi + (q ? ' pour « ' + brut + ' »' : '') + '.';
       if (filtre) {
         var b = document.createElement('button'); b.type = 'button'; b.className = 'filtres-effacer'; b.textContent = 'Tout effacer';
-        b.addEventListener('click', function () { champ.value = ''; selPrix.value = ''; cat = ''; poserPuces(); filtrer(); });
+        b.addEventListener('click', function () { champ.value = ''; selPrix.value = ''; cat = ''; groupe = ''; poserPuces(); filtrer(); });
         statut.appendChild(b);
       }
       // Address shown: rihezastore.com/<rayon> for a section, /produits otherwise
       var p = new URLSearchParams(), chemin = '/produits';
       if (brut) p.set('q', brut); if (selPrix.value) p.set('prix', selPrix.value);
       if (cat && cat !== 'nouveautes') chemin = '/' + cat; else if (cat) p.set('cat', cat);
+      if (groupe) { if (chemin === '/produits' && !p.toString()) chemin = '/' + groupe; else p.set('groupe', groupe); }
       if (history.replaceState) history.replaceState(null, '', chemin + (p.toString() ? '?' + p.toString() : ''));
     };
     champ.addEventListener('input', filtrer);
@@ -133,10 +139,14 @@
     var dieze = location.hash.slice(1), ids = Array.prototype.map.call(puces, function (p) { return p.getAttribute('data-cat'); });
     var rayon = location.pathname.replace(/^\/+|\/+$/g, '');
     if (ids.indexOf(params.get('cat')) > 0) cat = params.get('cat'); else if (ids.indexOf(rayon) > 0) cat = rayon; else if (ids.indexOf(dieze) > 0) cat = dieze;
+    var demande = params.get('groupe') || params.get('marque');
+    if (noms[demande]) groupe = demande; else if (noms[rayon]) groupe = rayon;
     if (params.get('prix')) { selPrix.value = params.get('prix'); if (selPrix.selectedIndex < 0) selPrix.value = ''; }
     if (depart) champ.value = depart;
     poserPuces();
-    if (depart || cat || selPrix.value) filtrer();
+    if (depart || cat || selPrix.value || groupe) filtrer();
+    // Arriving from a search, brand or type link (e.g. an ad): bring the results into view, above the fold on a phone
+    if ((depart || groupe) && sommaire) { window.addEventListener('load', function () { window.scrollTo(0, Math.max(0, sommaire.getBoundingClientRect().top + window.pageYOffset - 70)); }); }
     // La barre de l'en-tête, déjà sur cette page : elle filtre sans recharger
     var haut = document.getElementById('entete-champ');
     if (haut) {
