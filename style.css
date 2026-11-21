@@ -234,6 +234,10 @@ p { margin: 0; }
   display: inline-flex; align-items: center; padding: 5px 10px; border-radius: var(--rayon-pilule);
   font-size: var(--t-surtitre); font-weight: 700; line-height: 1.2;
 }
+/* Garantie : badge en bas à gauche de la photo (cartes et fiche produit) */
+.badge-garantie { position: absolute; left: var(--e-3); bottom: var(--e-3); gap: 5px; background: var(--blanc); color: var(--bleu); border: 1.5px solid var(--bleu); box-shadow: 0 2px 8px rgba(28, 35, 51, .12); pointer-events: none; }
+.galerie { position: relative; }
+.galerie > .badge-garantie { top: var(--e-3); bottom: auto; }
 .badge-promo { background: var(--orange); color: var(--blanc); }
 .badge-neuf { background: var(--vert-fond); color: var(--vert-whatsapp); font-weight: 500; }
 .prix .badge { align-self: center; }
