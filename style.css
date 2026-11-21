@@ -495,6 +495,7 @@ p { margin: 0; }
 @media (min-width: 900px) { .fiche-grille { grid-template-columns: 1.1fr 1fr; gap: var(--e-10); align-items: start; } }
 .fiche-infos { display: flex; flex-direction: column; gap: var(--e-4); }
 .fiche-infos h1 { font-size: clamp(26px, 3.6vw, 40px); line-height: 1.15; }
+.fiche-accroche { margin: 0; padding-left: var(--e-3); border-left: 3px solid var(--orange); color: var(--texte); font-size: var(--t-lead); font-weight: 600; line-height: 1.5; }
 .fiche-detail { color: var(--texte-doux); font-size: var(--t-lead); line-height: 1.6; }
 .fiche-points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--e-2); color: var(--texte-doux); font-size: var(--t-lead); line-height: 1.5; }
 .fiche-points li { display: flex; gap: var(--e-3); }
