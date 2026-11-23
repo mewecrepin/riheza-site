@@ -45,7 +45,7 @@
                   ],
     "rewrites":  [
                      {
-                         "source":  "/:page(electromenager|electronique|informatique|sacs|sport|jouets|divers|ozuko|neon|nexgen|roch|hisense|anlabeier|yaki|akai|haomax|perkins|samsung|zealot|cudy|tp-link|renz|elcon|tcl|sharp|idealpro|djack|jiepak|panmic|globalstar|cy|bose|onikuma|plokama|cat|sony|jbl|comfast|nc-link|baseus|xiaomi|borofone|ango-power|ldnio|baellerry|humerpaul|winning-star|refrigerateurs|congelateurs|machines-a-laver|cuisinieres|micro-ondes|ventilateurs|televiseurs|telephones|chargeurs|woofers|barres-de-son|casques|micros|supports-tv|rallonges|groupes-electrogenes|regulateurs|wifi|souris-claviers|sacs-a-dos|portefeuilles|pese-bagages|halteres|balances|rangement)",
+                         "source":  "/:page(electromenager|electronique|informatique|sacs|sport|jouets|divers|ozuko|neon|nexgen|roch|hisense|anlabeier|yaki|akai|haomax|perkins|samsung|zealot|cudy|tp-link|renz|elcon|tcl|sharp|idealpro|djack|jiepak|panmic|globalstar|cy|bose|onikuma|plokama|cat|sony|jbl|comfast|nc-link|baseus|xiaomi|borofone|ango-power|ldnio|baellerry|humerpaul|winning-star|refrigerateurs|congelateurs|machines-a-laver|cuisinieres|micro-ondes|ventilateurs|televiseurs|telephones|chargeurs|woofers|barres-de-son|casques|micros|supports-tv|rallonges|groupes-electrogenes|regulateurs|wifi|souris-claviers|sacs-a-dos|portefeuilles|pese-bagages|halteres|balances|rangement|noel)",
                          "destination":  "/produits"
                      }
                  ],

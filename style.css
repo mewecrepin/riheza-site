@@ -25,6 +25,10 @@ p { margin: 0; }
 .conteneur { width: 100%; max-width: var(--largeur-max); margin: 0 auto; padding: 0 var(--gouttiere); }
 .section { padding: var(--e-section) 0; }
 .section-grise { background: var(--gris-fond); }
+/* Noel : section saisonniere en haut de l'accueil (generee seulement quand des produits ont le champ "noel") */
+.section-noel { background: linear-gradient(180deg, #FFF3EA 0%, var(--blanc) 100%); border-top: 4px solid var(--orange); }
+.section-noel .surtitre { color: var(--orange-fonce); }
+.noel-intro { margin: var(--e-2) 0 0; max-width: 60ch; color: var(--texte-doux); }
 .surtitre {
   display: block;
   font-size: var(--t-surtitre);
