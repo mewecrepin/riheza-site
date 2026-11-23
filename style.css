@@ -28,6 +28,9 @@ p { margin: 0; }
 /* Noel : section saisonniere en haut de l'accueil (generee seulement quand des produits ont le champ "noel") */
 .section-noel { background: linear-gradient(180deg, #FFF3EA 0%, var(--blanc) 100%); border-top: 4px solid var(--orange); }
 .section-noel .surtitre { color: var(--orange-fonce); }
+.titre-page.titre-noel { background: linear-gradient(180deg, #FFF3EA 0%, var(--blanc) 100%); border-top: 4px solid var(--orange); }
+.titre-noel .surtitre { color: var(--orange-fonce); }
+.titre-noel-actions { display: flex; flex-wrap: wrap; gap: var(--e-3); margin-top: var(--e-5); }
 .noel-intro { margin: var(--e-2) 0 0; max-width: 60ch; color: var(--texte-doux); }
 .surtitre {
   display: block;
